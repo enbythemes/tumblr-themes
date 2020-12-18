@@ -1,0 +1,226 @@
+<!-- control © xroub.tumblr.com
+ 
+Thank you for using my code. It is truly appreciated. If you would like to support me directly, please consider buying me a ko-fi: https://ko-fi.com/roupaige
+ 
+Instructions on how to customize are through the code. I am currently not accepting asks or messages that are about major customization help, such as how to change sizes. If there is something wrong or missing with the code (unedited), please send me an ask off anon.
+ 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="{Favicon}" />
+<!-- broswer page title -->
+<title>{Title}</title>
+ 
+<!-- scripts -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans&display=swap" rel="stylesheet">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<style>
+/* html */
+body {
+margin: 0;
+background: #f0f0f0; /* the color of the whole background */
+font-family: 'Open Sans', sans-serif;
+font-size: 13px; /* font size */
+color: #222222; /* text color */
+}
+ 
+a {
+text-decoration: none;
+color: #555; /* the color of the links */
+position: relative;
+z-index: 1;
+}
+ 
+a::after {
+content: "";
+position: absolute;
+bottom: -2px;
+left: 0;
+width: 100%;
+height: 100%;
+background: #dbdbed; /* the accent color of under links */
+transform: scaleY(0.2);
+transform-origin: bottom;
+z-index: -1;
+transition: transform 0.4s ease;
+webkit-transtion: transform 0.4s ease;
+moz-transition: transform 0.4s ease;
+}
+ 
+a:hover::after {
+transform: scaleY(1);
+transform-origin: bottom;
+}
+ 
+main {
+width: 98%;
+margin: 0 auto;
+}
+ 
+/* header*/
+header {
+background: #ffffff; /* the color of the header */
+width: 96%;
+margin: 50px auto;
+padding: 1em 1%;
+}
+ 
+header img {
+vertical-align: middle;
+width: 25px;
+margin: 0 8px 6px 0;
+border-radius: 2px;
+}
+ 
+header h1 {
+display: inline-block;
+font-family: 'Fredoka One', cursive;
+text-transform: uppercase;
+letter-spacing: 1px;
+font-size: 1.25em;
+margin: 0;
+font-weight: 400; /* if you want the header title to be more bold, like in the name's, just delete this */
+}
+ 
+.links a {font-weight:bold;}
+.links {margin-top: 6px;}
+.links a:not(:last-of-type) {margin-right: 6px;}
+ 
+/* content */
+.grid {
+column-count: 3; /* this will determine the size of the boxes, the higher the number, the more that will be squeezed into one row. and the lower the number, the more stretched out the boxes will be. I recommend keeping it between 2 and 5*/
+column-gap: 20px; /* the space in between the boxes */
+width: 98%;
+margin: 50px auto;
+text-align: center;
+}
+ 
+.box {
+position: relative;
+break-inside: avoid; 
+margin-bottom: 15px;
+background: #f0f0f0; /* the main background color of the box, which is currently the same color as the entire background */
+border: 5px solid #ffffff; /* the border around the whole box */
+}
+ 
+.hdr {
+width: 100%;
+height: 60px; /* the height of the colored header */
+}
+ 
+.user {
+text-align: center;
+margin: -30px auto 15px;
+}
+ 
+.user img {
+width: 75px; /* the size of the pictures */
+height: 75px;
+border: 4px solid #ffffff; /* the border around the pictures */
+}
+ 
+h1.name {
+font-family: 'Fredoka One', cursive;
+display: inline-block;
+vertical-align: top;
+max-width: calc(100% - 85px);
+padding: 10px;
+background: #ffffff; /* the background of the name */
+margin: 0 0 0 10px;
+text-transform: uppercase;
+font-size: 1.5em;
+letter-spacing: 1px;
+}
+ 
+.desc {
+padding: 15px 10px;
+width: 85%;
+background: #ffffff; /* the background of the about/description */
+margin: 15px auto 0;
+text-align: center;
+}
+ 
+.info {
+width: 90%;
+padding: 10px;
+margin: 15px auto 10px;
+text-align: center;
+}
+ 
+.info span {
+padding: 8px 10px;
+background: #ffffff; /* the background of the information boxes */
+margin: 0 .5em .5em 0;
+}
+ 
+/* tumblr controls */
+.iframe-controls--desktop {
+position:fixed;
+top:0px;
+right:0px;
+z-index:214748364789123456789;
+filter:invert(100%);
+-webkit-filter:invert(100%);  
+-webkit-transform:scale(0.6,0.6);
+-webkit-transform-origin: 100% 0%;
+-ms-transform-origin:100% 0%;
+-ms-transform:scale(0.6,0.6);
+transform:scale(0.6,0.6);
+transform-origin:100% 0%;
+}
+ 
+.iframe-controls--phone-mobile {display:none!important;}
+.tmblr-iframe-pushdown {padding-top:0!important;}
+.tmblr-iframe--app-cta-button {display:none!important;}
+ 
+/* desktop and mobile responsive queries */
+@media only screen and (max-width: 800px) {
+.grid {column-count: 2;}
+}
+ 
+@media only screen and (max-width: 550px) {
+.grid {column-count: 1;}
+}
+ 
+</style>
+</head>
+<body>
+ 
+<main>
+<header>
+<img src="{PortraitURL-64}">
+<h1 class="ttl">title</h1>
+<div class="links">
+<a href="/">home</a>
+<a href="/ask">message</a>
+<a href="/archive">archive</a>
+<!-- please do no remove. thank you. -->
+<a href="https://enbythemes.tumblr.com">theme</a>
+</div>
+</header>
+ 
+<div class="grid">
+<!-- copy from here -->
+<div class="box">
+<div class="hdr" style="background: #959595;"></div> <!-- the color of the box header. you can get color hex codes from images here: https://imagecolorpicker.com -->
+<div class="user">
+<img src="http://placehold.it/75">
+<h1 class="name">name</h1>
+</div>
+ 
+<div class="desc">
+here is the about section.
+</div>
+ 
+<div class="info">
+<span>info here</span>
+</div>
+</div>
+<!-- to here & paste as needed -->
+ 
+</div> <!-- content ends -->
+</main>
+</body>
+</html>
