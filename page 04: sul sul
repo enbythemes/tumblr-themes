@@ -1,0 +1,295 @@
+<!--
+sul sul © xroub.tumblr.com
+ 
+biography icons by https://v2.jam-icons.com/
+about dropdown boxes icons by http://honeybee.suiomi.com/
+ 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="{Favicon}" />
+<link rel="alternate" type="application/rss+xml" href="{RSS}" />
+<title>{Title}</title>
+ 
+<!-- scripts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+ 
+<link rel="stylesheet" href="https://unpkg.com/jam-icons/css/jam.min.css">
+ 
+<link href="//solrainha.github.io/honeybee/honeybee.css" rel="stylesheet">
+ 
+<style>
+body {
+margin: 0;
+background: #f0f0f0; /* main background color */
+font-family: 'Poppins', sans-serif;
+font-size: 13px;
+}
+ 
+main {
+width: 700px;
+height: 450px;
+display: flex;
+background: linear-gradient(to bottom, #edeff7, #ffffff); /* gradient background. if you don't want just delete this line*/
+background-color: #edeff7; /* solid background color for any browsers that don't support gradients */
+border-radius: 6px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+border: 1px solid #dddddd; /* light gray border around the box */
+overflow: hidden;
+}
+ 
+/* if the image has a transparent bg */
+#transparent {
+background: linear-gradient(to bottom, #bae0a1, #bae0a1);
+max-width: 200px;
+height: calc(100% - 20px);
+padding: 15px 0;
+object-fit: cover;
+}
+ 
+/* if the image does not have a transparent bg*/
+#full {
+max-width: 200px;
+height: 100%;
+object-fit: cover;
+}
+ 
+/* bio section */
+.user {
+width: calc(100% - 210px - 350px);
+padding: 15px 10px;
+list-style: none;
+}
+ 
+.user h2 {
+font-size: 1.1em;
+margin: 0 0 15px 5px;
+color: #0a4aab; /* light blue text color */
+font-weight: 500;
+letter-spacing: 1px;
+}
+ 
+.user .jam {
+background: #fff; /* background color of the icons in the bio */
+border: 1px solid #dddddd; /* light gray border around the icons */
+border-radius: 5px;
+padding: 5px 6px;
+vertical-align: middle;
+margin-right: 4px;
+color: #000; /* icon color */
+}
+ 
+.user li {
+margin: 0 0 1.25em;
+color: #0a4aab; /* light blue text color */
+font-weight: 500;
+text-transform: capitalize;
+}
+ 
+/* about section */
+.about {
+width: 330px;
+padding: 10px;
+}
+ 
+h1.name {
+width: 100%;
+margin: 0;
+text-transform: capitalize;
+font-weight: 500;
+padding: 0 10px;
+text-align: center;
+color: #0a4aab; /* light blue text color */
+}
+ 
+.heading {
+width: 100%;
+font-size: 1.25em;
+text-transform: capitalize;
+font-weight: 500;
+color: #f0f0f0;
+margin: 5px 0 5px;
+padding: 4px;
+text-align: center;
+background: linear-gradient(to bottom, #a7e37e 0%, #4db835 60%); /* gradient backgrounds on the dropdown buttons */
+background: #a7e37e; /* solid background for browsers that don't support gradients */
+border-radius: 6px;
+box-shadow: 2px 3px 3px rgba(0,0,0,0.2);
+-webkit-box-shadow: 2px 3px 3px rgba(0,0,0,0.2);
+cursor: pointer;
+border: none;
+outline: none;
+}
+ 
+/* icon on dropdown buttons */
+.heading:after {
+font-family: 'jam-icons';
+content: "\e9ba";
+color: #f0f0f0;
+font-weight: bold;
+float: right;
+margin-left: 5px;
+transition: all 0.4s ease;
+-webkit-transition: all 0.4s ease;
+-moz-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+-ms-transition: all 0.4s ease;
+}
+ 
+.active:after {transform: rotate(180deg)}
+ 
+/* about / dropdown boxes */
+.panel {
+background: #fff;
+padding: 0 10px;
+color: #0a4aab; /* light blue text color */
+text-transform: capitalize;
+font-weight: 500;
+line-height: 250%;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.4s ease-out;
+-webkit-transition: max-height 0.4s ease-out;
+-moz-transition: max-height 0.4s ease-out;
+-o-transition: max-height 0.4s ease-out;
+-ms-transition: max-height 0.4s ease-out;
+}
+ 
+/* icons inside of the about boxes */
+.panel .th {
+font-size: .9em;
+padding: 4px;
+border-radius: 4px;
+border: 1px solid #ddd;
+color: #000;
+margin-right: 2px;
+}
+ 
+.panel li {
+list-style: none;
+display: inline-block;
+}
+ 
+.panel li:not(:last-of-type) {margin-right: 4px;}
+ 
+/* tumblr controls */
+.iframe-controls--desktop {
+position:fixed;
+top: 10px;
+right: 5px;
+z-index: 214748364789123456789;
+filter:invert(100%);
+-webkit-filter:invert(100%);  
+-webkit-transform:scale(0.6,0.6);
+-webkit-transform-origin: 100% 0%;
+-ms-transform-origin:100% 0%;
+-ms-transform:scale(0.6,0.6);
+transform:scale(0.6,0.6);
+transform-origin:100% 0%;
+}
+ 
+/* credit, DO NOT TOUCH*/
+.crd {
+position: fixed;
+bottom: 10px;
+right: 10px;
+padding: 4px;
+}
+ 
+.crd a {
+text-decoration: none;
+color: #000;
+text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+<main>
+<!-- sidebar image -->
+<!-- if the image has a transparent background -->
+<img src="" class="pic" id="#transparent">
+ 
+<!-- if the image does not have a transparent background -->
+<img src="" class="pic" id="#full">
+ 
+<!-- bio section begins -->
+<div class="user">
+<h2>Biogrophy:</h2>
+<li><span class="jam jam-user"></span>age</li>
+<li><span class="jam jam-female"></span>pronouns</li>
+<li><span class="jam jam-heart"></span>spouse</li>
+</div>
+<!-- bio section ends -->
+ 
+<div class="about">
+<h1 class="name">About First Last</h1>
+ 
+<!-- traits begin -->
+<div class="traits">
+<button class="heading">Traits</button>
+<div class="panel">
+<p>
+<li><span class="th th-like"></span> trait #1</li>
+<li><span class="th th-home"></span> trait #2</li>
+<li><span class="th th-rose"></span> trait #3</li>
+<li><span class="th th-users"></span> bonus trait?</li>
+</p>
+</div>
+</div>
+<!-- traits ends -->
+ 
+<!-- career begins -->
+<div class="job">
+<button class="heading">Career</button>
+<div class="panel">
+<p>
+<li><span class="th th-loupe-o"></span> lorem ipsum</li>
+</p>
+</div>
+</div>
+<!-- career ends -->
+ 
+<!-- relationships begin -->
+<div class="rel">
+<button class="heading">Relationships</button>
+<div class="panel">
+<p>
+<li><span class="th th-heart-1"></span> #1</li>
+<li><span class="th th-female"></span> #2</li>
+<li><span class="th th-male"></span> #3</li>
+<li><span class="th th-dog-1-o"></span> #5</li>
+<li><span class="th th-cat-o"></span> #5</li>
+</p>
+</div>
+</div>
+<!-- relationships end -->
+</main>
+ 
+<!-- about / accordion script, don't touch -->
+<script>
+var acc = document.getElementsByClassName("heading");
+var i;
+ 
+for (i = 0; i < acc.length; i++) {
+acc[i].addEventListener("click", function() {
+this.classList.toggle("active");
+var panel = this.nextElementSibling;
+if (panel.style.maxHeight) {
+panel.style.maxHeight = null;
+} else {
+panel.style.maxHeight = panel.scrollHeight + "px";
+} 
+});
+}
+</script>
+<!-- DO NOT REMOVE AND/OR EDIT -->
+<!-- If you ever want to move my credit, send me a message first -->
+<div class="crd">
+<a href="https://enbythemes.tumblr.com" title="code by rou">enby</a>
+</div>
+</body>
+</html>
