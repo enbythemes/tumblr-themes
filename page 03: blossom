@@ -1,0 +1,406 @@
+<!--
+blossom © xroub.tumblr.com
+
+THANK YOU TO
+yeolithm.com for the css carousel tutorial
+
+COLORS: 
+background: #fafafa
+box backgrounds: #fff
+box shadows: #eee
+sidebar navi (hover): #ddd
+sidebar navi (selected): #999
+accent (pale pink): #e5ceca
+answer background: #f0f0f0
+social media links background: #fafafa
+
+ICONS:
+sidebar navi and user information icons: https://feathericons.com/
+social media icons: https://honeybee.suiomi.com/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="{Favicon}" />
+<link rel="alternate" type="application/rss+xml" href="{RSS}" />
+<title>{Title}</title>
+
+<!-- scripts -->
+<script src="https://unpkg.com/feather-icons"></script>
+<link href="//solrainha.github.io/honeybee/honeybee.css" rel="stylesheet">
+
+<style>
+/* html */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: sans-serif;
+font-size: 12px;
+line-height: 1.5em;
+text-align: justify;
+color: #333;
+background-color: #fafafa;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {width: 0px;}
+::-webkit-scrollbar-thumb {background: #e5ceca;}
+
+/* text selection */
+::selection {
+background: #e5ceca;
+color: #fff;
+}
+
+p {margin: 1em 0;}
+b {color: #e5ceca;}
+
+a {
+text-decoration: none;
+color: #e5ceca;
+transition: all 0.4s ease;
+-webkit-transition: all 0.4s ease;
+-moz-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+}
+
+a:hover {
+color: #aaa;
+border-bottom: 2px solid #e5ceca;
+}
+
+blockquote {
+margin: 1em;
+padding-left: 10px;
+border-left: 2px solid #e5ceca;
+}
+
+/* main */
+#container {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+}
+
+#carousel, #navigation {
+flex: initial;
+display: block;
+}
+
+#carousel {
+overflow: hidden;
+width: 500px;
+height: 400px;
+border-radius: 4px;
+background-color: #fff;
+border: 1px solid #eee;
+}
+
+.p-wrapper {
+position: relative;
+width: 100%;
+height: 100%;
+transition: transform 0.4s ease-in-out;
+}
+
+#button_a:checked ~ #carousel .p-wrapper {
+-webkit-transform: translateY(0);
+transform: translateY(0); 
+}
+            
+#button_b:checked ~ #carousel .p-wrapper {
+-webkit-transform: translateY(-100%);
+transform: translateY(-100%); 
+}
+
+#button_c:checked ~ #carousel .p-wrapper {
+-webkit-transform: translateY(-200%);
+transform: translateY(-200%); 
+}
+
+#button_d:checked ~ #carousel .p-wrapper {
+-webkit-transform: translateY(-300%);
+transform: translateY(-300%); 
+}
+            
+[class^="panel_"] {
+overflow: auto;
+position: relative;
+width: inherit;
+height: inherit;
+padding: 15px;
+}
+            
+#navigation {
+margin-right: 24px;
+}
+
+#navigation svg {
+width: 25px;
+vertical-align: middle;
+}
+
+[class^="label_"], #navigation a {
+display: block;
+cursor: pointer;
+margin: 10px 0;
+width: 40px;
+height: 40px;
+line-height: 40px;
+text-align: center;
+border-radius: 4px;
+border: 1px solid #eee;
+color: #aaa;
+background-color: #fff;
+transition: all 0.3s ease;
+}
+
+[class^="label_"]:hover, #navigation a:hover {
+color: #444;
+background-color: #ddd;
+}
+
+#button_a:checked ~ #navigation .label_a,
+#button_b:checked ~ #navigation .label_b,
+#button_c:checked ~ #navigation .label_c,
+#button_d:checked ~ #navigation .label_d {
+cursor: default;
+color: #fff;
+background-color: #999;
+}
+
+/* about section */
+.user {
+position: fixed;
+width: 100px;
+max-height: 320px;
+}
+
+.user img {width: 100%;}
+
+.userinfo {margin-top: 10px;}
+
+.userinfo svg {
+width: 1em;
+vertical-align: middle;
+margin-right: 5px;
+}
+
+.ab {
+position: fixed;
+width: 350px;
+max-height: 320px;
+margin-left: 120px;
+padding: 0 10px;
+overflow: auto;
+}
+
+.qu {
+position: fixed;
+width: 470px;
+bottom: 15px;
+left: 15px;
+padding: 8px;
+background: #fafafa;
+text-align: center;
+font-style: italic;
+}
+
+/* faq section */
+.q, .a {
+padding: 8px;
+margin-bottom: 10px;
+}
+
+.q {background: #e5ceca;}
+.a {background: #f0f0f0;}
+
+/* tags section */
+.ttl {
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 5px;
+}
+
+.group {margin-bottom: 15px;}
+.group a {margin: 0 .5em 0 0;}
+
+/* links section */
+.panel_d a:hover {border: none;}
+
+.group img {
+width: 45px;
+border-radius: 100%;
+transition: all 0.4s ease;
+-webkit-transition: all 0.4s ease;
+-moz-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+}
+
+.group img:hover {
+padding: 3px;
+border: 1px solid #ccc;
+transition: all 0.4s ease;
+-webkit-transition: all 0.4s ease;
+-moz-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+}
+
+.links li {
+display: inline-block;
+width: calc(50% - 15px);
+background: #fafafa;
+padding: 5px;
+margin: .5em;
+border: 1px solid #eee;
+}
+
+.links .th {
+width: 1em;
+vertical-align: middle;
+margin-right: 3px;
+color: #aaa;
+}
+
+.links .usn {float: right;}
+
+/* tumblr controls by magnusthemes */
+.iframe-controls--desktop {
+position:fixed;
+top:0px;
+right:0px;
+z-index:214748364789123456789;
+filter:invert(100%);
+-webkit-filter:invert(100%);  
+-webkit-transform:scale(0.6,0.6);
+-webkit-transform-origin: 100% 0%;
+-ms-transform-origin:100% 0%;
+-ms-transform:scale(0.6,0.6);
+transform:scale(0.6,0.6);
+transform-origin:100% 0%;
+}
+
+/*credit */
+.crd {
+bottom: 10px;
+right: 10px;
+position: fixed;
+}
+
+</style>
+</head>
+<body>
+<div  id="container">
+
+<!-- sidebar navigation -->
+<input hidden type="radio" name="carousel-control" id="button_a" checked/>
+<input hidden type="radio" name="carousel-control" id="button_b"/>
+<input hidden type="radio" name="carousel-control" id="button_c"/>
+<input hidden type="radio" name="carousel-control" id="button_d"/>
+
+<!-- navigation icons -->
+<div id="navigation">
+<label for="button_a" class="label_a"> <span class="th th-users-o"></span> </label>
+<label for="button_b" class="label_b"> <span class="th th-paper-plane-o"></span></label>
+<label for="button_c" class="label_c"> <span class="th th-folder-2-o"></span></label>
+<label for="button_d" class="label_d"> <span class="th th-link"></span> </label>
+
+<div style="margin-top: 120px;">
+<a href="/" title="return"><span class="th th-home-o"></span></a></>
+<a href="https://enbythemes.tumblr.com" title="code by enbythemes"><span class="th th-code"></span></a>
+</div>
+</div>
+
+<div id="carousel">
+<div class="p-wrapper">
+
+<!-- about section -->
+<section class="panel_a">
+<div class="user">
+<img src="{PortraitURL-128}">
+
+<div class="userinfo">
+<i data-feather="user"></i> name <br>
+<i data-feather="circle"></i> pronouns <br>
+<i data-feather="calendar"></i> age <br>
+<i data-feather="map-pin"></i> whatever
+</div>
+</div>
+
+<!-- about/bio -->
+<div class="ab">
+<p><blockquote>Here is the about section. <b>Bold.</b> <i>Italic.</i> <a href="/">A link.</a></blockquote></p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare faucibus diam id maximus. Fusce at efficitur nunc. Curabitur sed ullamcorper orci. Nam nulla enim, ultricies nec lectus a, commodo volutpat nisi. Pellentesque facilisis lacinia ante, eu pulvinar ante varius a. Fusce tincidunt efficitur tempor. Praesent pretium felis consectetur posuere sagittis. Sed luctus nisl non vestibulum semper. Vivamus mi velit, porttitor ac malesuada at, vulputate venenatis augue.</p>
+</div>
+
+<!-- quote -->
+<div class="qu">
+"quote goes here"
+</div>
+</section>
+
+<!-- faq section -->
+<section class="panel_b">
+
+<div class="q">
+Is this a question?
+</div>
+
+<div class="a">
+Yes, and this is an answer.
+</div>
+
+<!-- ask box -->
+<p><iframe frameborder="0" scrolling="no" width="100%" height="190" src="http://www.tumblr.com/ask_form/{Name}.tumblr.com" style="background-color:transparent; overflow:hidden;" id="ask_form"></iframe><!--[if IE]><script type="text/javascript">document.getElementById('ask_form').allowTransparency=true;</script><![endif]--></p>
+</section>
+
+<!-- links section -->                    
+<section class="panel_c">
+
+<div class="group">
+<div class="ttl">group title</div>
+<a href="/">#tag one</a>
+<a href="/">#tag two</a>
+<a href="/">#tag three</a>
+</div>
+<!-- copy and paste as needed -->
+</section>
+
+<!-- other section -->
+<section class="panel_d">
+<div class="group">
+<div class="ttl">other blogs</div>
+<a href="/" title="blog name"><img src="https://via.placeholder.com/45"></a>
+</div>
+
+<div class="group">
+<div class="ttl">cool blogs</div>
+<a href="/" title="blog name"><img src="https://via.placeholder.com/45"></a>
+</div>
+
+<div class="links">
+<ul>
+<!-- get more icons at honeybee.suiomi.com-->
+<li><span class="th th-instagram"></span><a class="usn" href="/">@username</a></li>
+<li><span class="th th-twitter"></span><a class="usn" href="/">@username</a></li>
+</ul>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+<!-- credit -->
+<!-- if you ever want to move my credit, please send me an ask or message to let me know -->
+<a href="" class="crd" title="code by rou">enby</a>
+<script>
+feather.replace()
+</script>
+</body>
+</html>
