@@ -1,5 +1,12 @@
 <!--
-tueday the 17th © xroub.tumblr.com
+plastic hearts © xroub.tumblr.com
+
+base codes by egg.design, annasthms, and seyche
+photosets by egg.design and annasthms
+tooltips by malihu
+video resize b nouvae
+tumblr controls by magnusthemes
+honeybee icons by suiomi
 -->
 <!DOCTYPE html>
 <html>
@@ -76,7 +83,6 @@ tueday the 17th © xroub.tumblr.com
 
 <link href="https://static.tumblr.com/0podkko/oDSpg7y88/photosets.css" rel="stylesheet">
 
-
 <script src="https://rawgit.com/robinpx/tumblr/master/scripts/flexibleFrames/flexibleFrames.min.js"></script>
 
 <!-- tooltips by malihu -->
@@ -93,7 +99,7 @@ attribute:"title"
 })(jQuery);
 </script>
 
-<!-- photosets by annathms and eggdesigns -->
+<!-- photosets by annasthms and eggdesigns -->
 <script>
 function gatherData(images, arr) {
   for (let i = 0; i < images.length; i++) {
