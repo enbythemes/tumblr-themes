@@ -1,0 +1,231 @@
+<!--
+birthmark © xroub.tumblr.com
+
+THANK YOU FOR USING MY CODE. EVERYTHING SHOULD BE VERY SIMPLE TO EDIT, BUT IF YOU HAVE ANY QUESTIONS, SEND ME AN ASK @ ENBYTHEMES.TUMBLR.COM/ASK
+
+accent: #E97F7F
+borders: #ccc
+
+find more icons at https://honeybee.suiomi.com/
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="{Favicon}"/>
+<title>birthmark</title>
+
+<!-- scripts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"><link href="//solrainha.github.io/honeybee/honeybee.css" rel="stylesheet"><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script><script src="https://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+
+<!----- style my tooltip by malihu ---->
+<script>
+(function($){
+$(document).ready(function(){
+$("a[title]").style_my_tooltips({
+tip_follows_cursor:true,
+tip_delay_time:90,
+tip_fade_speed:600,
+attribute:"title"
+});
+});
+})(jQuery);
+</script>
+</head>
+<style>
+* {
+margin: 0;
+padding: 0;
+}
+
+::-webkit-scrollbar {
+width: 0px;
+}
+
+::selection {
+background: #E97F7F;
+color: #fff;
+}
+
+#s-m-t-tooltip {
+max-width: 300px;
+margin-top: -30px;
+margin-left: -25px;
+font-size: 8px;
+letter-spacing: 1px;
+text-align: center;
+text-transform: uppercase;
+padding: 5px;
+background-color: #fff;
+z-index: 999999;
+border: 1px solid #ccc;
+}
+
+body {
+background: #fafafa;
+font-family: 'Open Sans', sans-serif;
+font-size: 13px;
+}
+
+a, b {
+color: #E97F7F;
+}
+
+a {
+text-decoration: none;
+transition: all 0.5s ease;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+}
+
+a:hover {
+color: #959595;
+transition: all 0.3s ease;
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+}
+
+p {
+margin: 10px 0;
+}
+
+blockquote {
+border-left: 1px solid #ccc;
+padding-left: 8px;
+margin: 8px;
+}
+
+.container {
+width: 500px;
+height: 330px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.content, .sm {
+width: calc(100% - 10px);
+background: #fff;
+padding: 10px;
+border: 1px solid #ccc;
+}
+
+.content {
+height: 240px;
+}
+
+.user {
+width: 170px;
+height: 240px;
+position: absolute;
+top: 10px;
+left: 10px;
+border-right: 1px solid #ccc;
+}
+
+.avtr {
+max-width: 100px;
+max-height: 100px;
+margin-left: 50%;
+transform: translate(-50%);
+}
+
+.info {
+width: 150px;
+max-height: 120px;
+padding: 5px;
+margin: 5px 0;
+overflow: auto;
+}
+
+.about {
+width: 290px;
+height: 230px;
+position: absolute;
+top: 10px;
+right: 10px;
+padding: 5px;
+text-align: justify;
+overflow: auto;
+}
+
+.sm {
+position: absolute;
+bottom: 0px;
+text-align: center;
+height: 20px;
+}
+
+.sm .th {
+font-size: 16px;
+margin: 0 5px;
+}
+
+/*                  tumblr controls by magnusthemes              */
+.iframe-controls--desktop {
+position:fixed;
+top:0px;
+right:0px;
+z-index:214748364789123456789;
+filter:invert(100%);
+-webkit-filter:invert(100%);  
+-webkit-transform:scale(0.6,0.6);
+-webkit-transform-origin: 100% 0%;
+-ms-transform-origin:100% 0%;
+-ms-transform:scale(0.6,0.6);
+transform:scale(0.6,0.6);
+transform-origin:100% 0%;
+}
+
+.tmblr-iframe--app-cta-button {display:none!important;}
+.iframe-controls--phone-mobile {display:none!important;}
+.tmblr-iframe-pushdown {padding-top:0!important;}
+
+/*credit */
+.crd {
+bottom: 10px;
+right: 10px;
+position: fixed;
+}
+
+.crd svg {
+width: 1em;
+}
+</style>
+<body>
+
+<div class="container">
+<div class="content">
+<div class="user"><img class="avtr" src="{PortraitURL-128}">
+
+<p class="info">
+<b>name:</b> xxx <br>
+<b>pronouns:</b> xxx <br>
+write as much as you want. it will automatically scroll.
+</p>
+</div>
+
+<div class="about">
+<p>Here is the about section. Go wild.</p>
+</div>
+</div>
+
+<div class="sm">
+<a href="/" title="username"><span class="th th-twitter"></span></a>
+<a href="/" title="username"><span class="th th-snapchat"></span></a>
+<a href="/" title="username"><span class="th th-youtube"></span></a>
+<a href="/" title="username"><span class="th th-ao3"></span></a>
+<a href="/" title="username"><span class="th th-discord"></span></a>
+<a href="/" title="username"><span class="th th-reddit"></span></a>
+</div>
+</div>
+
+<!-- credit -->
+<!-- if you ever want to move my credit, please send me an ask or message to let me know -->
+<div class="crd"><a href="https://enbythemes.tumblr.com" title="code by roub">enby</a></div>
+</div>
+</body>
+</html>
