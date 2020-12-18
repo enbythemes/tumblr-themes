@@ -459,7 +459,7 @@ letter-spacing: 1px;
 text-transform: capitalize;
 }
 
-.permalinks a:hover {color: {color:posts};}
+a.day:hover, .like-reblog a:hover {color: {color:posts};}
 
 /* like and reblog buttons */
 .like-reblog {float: right; margin-top: -.75em;}
