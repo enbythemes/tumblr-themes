@@ -1,0 +1,176 @@
+<!--
+heads will roll © xroub.tumblr.com
+
+THANK YOU FOR USING MY CODE. EVERYTHING SHOULD BE VERY SIMPLE TO EDIT, BUT IF YOU HAVE ANY QUESTIONS, SEND ME AN ASK @ ENBYTHEMES.TUMBLR.COM/ASK
+
+                    COLORS:
+header, avatar & box tittle background: #252525
+links & box border on hover: #c53d3d
+header links hover: #ffffff
+box background: #dddddd
+box link background: #fafafa
+box links on hover: #000000
+-->
+
+<!DOCTPYE html>
+<html>
+<head>
+<title>{TITLE}</title>
+<link rel="shortcut icon" href="{Favicon}"/>
+<meta name="description" content="{MetaDescription}">
+
+<!-- scripts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"><link href="//dl.dropbox.com/s/vpi3f9s7nhpe7v7/honeybee.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<style>
+* {
+margin: 0;
+padding: 0;
+}
+
+body {
+background: #999999;
+color: #f0f0f0;
+font-family: 'Open Sans', sans-serif;
+font-size: 1em;
+}
+
+/* transition */
+a, a:hover, .box ul li, .box ul li:hover{
+transition: all 0.5s ease;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+}
+
+a {
+text-decoration: none;
+cursor: help;
+color: #c53d3d;
+margin: 0 1em;
+}
+
+.header, .avtr, .ttl {
+background: #252525;
+}
+
+.header {
+width: calc(100% - 20px);
+padding: 10px;
+}
+
+.avtr {
+max-width: 60px;
+border-radius: 100%;
+float: left;
+margin: -5px 0px 0 20px;
+padding: 3px;
+}
+
+.header a:hover {
+color: #ffffff;
+border-bottom: 3px solid #c53d3d;
+}
+
+.container {
+width: 60vw;
+margin: 4em auto;
+}
+
+.box {
+width: 100%;
+margin: 40px 0;
+background: #dddddd;
+}
+
+.box:last-of-type {
+margin-bottom: 0px;
+}
+
+.ttl {
+text-transform: uppercase;
+letter-spacing: 1px;
+padding: 8px;
+}
+
+.box ul {
+list-style: none;
+padding: 5px 0px;
+}
+
+.box li {
+display: inline-block;
+background: #fafafa;
+padding: 4px;
+margin: 5px;
+border: 1px solid #fafafa;
+}
+
+.box li:hover {
+background: none;
+border: 3px solid #c53d3d;
+padding: 2px;
+cursor: help;
+}
+
+.box li:hover a {
+color: #000000;
+}
+
+/* custom tumblr controls by cyantists */
+.iframe-controls--desktop {
+position:fixed;
+top:0px;
+right:0px;
+z-index:214748364789123456789;
+filter:invert(100%);
+-webkit-filter:invert(100%);  
+-webkit-transform:scale(0.6,0.6);
+-webkit-transform-origin: 100% 0%;
+-ms-transform-origin:100% 0%;
+-ms-transform:scale(0.6,0.6);
+transform:scale(0.6,0.6);
+transform-origin:100% 0%;
+}
+
+.tmblr-iframe--app-cta-button {display:none!important;}
+.iframe-controls--phone-mobile {display:none!important;}
+.tmblr-iframe-pushdown {padding-top:0!important;}
+
+/*credit */
+.crd {
+bottom: 10px;
+right: 10px;
+position: fixed;
+}
+
+.crd svg {
+width: 1em;
+}
+</style>
+<body>
+<div class="header"><img class="avtr" src="{PortraitURL-128}">
+
+<div class="links">
+<a href="/">home</a>
+<a href="/ask">message</a>
+<a href="https://tumblr.com/dashboard">dash</a>
+</div>
+</div>
+
+<div class="container">
+
+<!-- copy and paste as needed -->
+<div class="box">
+<div class="ttl">title</div><ul>
+<li><a href="/">tag</a></li>
+</ul></div>
+<!-- copy and paste as needed -->
+</div>
+
+<!-- credit -->
+<!-- if you ever want to move my credit, please send me an ask or message to let me know -->
+<div class="crd"><a href="https://enbythemes.tumblr.com" title="code by roub">enby</a></div>
+</body>
+</html>
