@@ -660,6 +660,10 @@ padding: 1em;
 .caption {padding: 1em 0;}
 .reblog-header a {font-weight: 700; font-size: 1.1em;}
 
+.inactive:hover:after {
+content:'deactivated';
+}
+
 /* tags */
 .tags {
 font-size: .95em;
