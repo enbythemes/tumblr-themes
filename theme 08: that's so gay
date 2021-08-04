@@ -315,6 +315,7 @@ height: 1em;
 line-height: 1em;
 overflow: hidden;
 margin-bottom: -4px;
+margin-left: 4px;
 cursor: pointer;
 }
 
