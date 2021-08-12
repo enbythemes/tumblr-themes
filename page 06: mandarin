@@ -1,0 +1,201 @@
+<!--
+mandarin © xroub.tumblr.com
+
+Font Icon credit to:
+https://phosphoricons.com/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>mandarin</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&family=Lora&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/phosphor-icons"></script>
+<style>
+/* HERE IS WHERE YOU CHANGE THE COLORS */
+:root {
+--bg: #ffffff;
+--font: #222222;
+--links: #fd8d51;
+--bold: #996c55;
+--italic: #333333;
+--borders: #dddddd;
+}
+
+body {
+margin: 0;
+background: var(--bg);
+font-family: 'Lato', sans-serif;
+color: var(--font);
+font-size: 14px;
+line-height: 150%;
+}
+
+a {
+text-decoration: none;
+color: var(--links);
+transition: all 0.4s;
+-webkit-transition: all 0.4s;
+-moz-transition: all 0.4s;
+-ms-transition: all 0.4s;
+-o-transition: all 0.4s;
+}
+
+a:hover {color: var(--font);}
+
+i {letter-spacing: 1px; color: var(--italic);}
+b {color: var(--bold);}
+
+/* content */
+main {
+width: 90%;
+max-width: 1000px;
+display: flex;
+position: absolute;
+top: 50%; left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.ab, .nav {
+width: 50%;
+max-width: 455px;
+margin: 0 10px;
+}
+
+.ttl {
+font-family: 'Lora', serif;
+width: 50%;
+padding: 0 0 8px 4px;
+border-bottom: 1px solid var(--borders);
+font-weight: bold;
+letter-spacing: 1px;
+}
+
+/* about */
+.ab {
+padding-right: 30px;
+border-right: 1px solid var(--borders);
+}
+
+.ab .ttl img {
+width: 40px; height: 40px;
+border-radius: 50%;
+margin: 0 4px -5px 0;
+}
+
+/* links */
+.nav {padding-left: 30px;}
+.lnk, .sm {margin: 1em 0 1.5em;}
+.lnk a, .sm a {margin: 0 .75em .75em 0;}
+
+.lnk a i, .sm a i {
+vertical-align: middle;
+margin-right: 4px;
+font-size: 1.15em;
+}
+
+.sm a {color: var(--font);}
+.sm a:hover {color: var(--links);}
+
+.sm .cp {
+font-size: .85em;
+margin-right: 3px;
+vertical-align: middle;
+}
+
+/* tumblr controls by magnusthemes */
+.iframe-controls--phone-mobile {display:none!important;}
+.tmblr-iframe-pushdown {padding-top:0!important;}
+.tmblr-iframe--app-cta-button {display:none!important;}
+
+.iframe-controls--desktop {
+position:fixed;
+top:0px;
+right:0px;
+z-index:214748364789123456789;
+filter:invert(100%);
+-webkit-filter:invert(100%);  
+ webkit-transform:scale(0.6,0.6);
+-webkit-transform-origin: 100% 0%;
+-ms-transform-origin:100% 0%;
+-ms-transform:scale(0.6,0.6);
+transform:scale(0.6,0.6);
+transform-origin:100% 0%;
+}
+
+.crd {
+position: fixed;
+bottom: 10px; right: 10px;
+padding: .75em;
+text-transform: uppercase;
+font-size: .9em;
+}
+
+/* media queries and responsiveness */
+@media only screen and (max-width: 720px) {
+main {
+width: 95%;
+flex-direction: column;
+}
+
+.ab, .nav {
+min-width: 100%;
+margin: 1em 0;
+}
+
+.ab {
+padding-right: 0px;
+border-right: none;
+}
+
+.nav {
+padding-left: 0px;
+margin-top: 1em;
+}
+}
+</style>
+</head>
+<body>
+<main>
+<!-- about starts here -->
+<div class="ab">
+<div class="ttl">
+<img src="{PortraitURL-40}">
+biography</div>
+
+<p><b>Bold.</b> <i>Italic.</i> And here's <a href="/">a link.</a></p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet eros nibh. Sed massa nisl, ultrices tempor porta in, aliquet eu augue. Nam pellentesque neque nec egestas aliquet. Phasellus elementum tortor purus, quis interdum erat mollis at. In in lacus quis leo blandit aliquet a a elit.</p>
+</div>
+<!-- about section ends here -->
+
+<!-- navigation section starts here -->
+<div class="nav">
+<div class="ttl">links</div>
+
+<div class="lnk">
+<a href="/"><i class="ph-hash-straight-bold"></i> link one</a>
+<a href="/"><i class="ph-hash-straight-bold"></i> link two</a>
+<a href="/"><i class="ph-hash-straight-bold"></i> link three</a>
+</div>
+
+<div class="sm">
+<a href="/"><i class="ph-discord-logo-bold"></i> discord</a>
+<a href="/"><i class="ph-twitter-logo-bold"></i> twitter</a>
+<a href="/"><i class="ph-instagram-logo-bold"></i> instagram</a>
+<a href="/"><i class="ph-youtube-logo-bold"></i> youtube</a>
+<!-- find more icons at phosphoricons.com -->
+</div>
+</div>
+<!-- navigation section ends here -->
+</main>
+<!-- credit: DO NOT REMOVE. If you ever want to move my credit, send me a message. -->
+<a href="https://enbythemes.tumblr.com" class="crd" title="code by rou">enby</a>
+</body>
+</html>
