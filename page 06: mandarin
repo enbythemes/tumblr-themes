@@ -7,7 +7,7 @@ https://phosphoricons.com/
 <!DOCTYPE html>
 <html>
 <head>
-<title>mandarin</title>
+<title>{Title}</title>
 <link rel="shortcut icon" href="{Favicon}">
 <link rel="alternate" type="application/rss+xml" href="{RSS}">
 <meta charset="utf-8">
