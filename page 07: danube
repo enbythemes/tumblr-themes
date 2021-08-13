@@ -1,0 +1,157 @@
+<!--
+danube © xroub.tumblr.com
+
+Font Icon credit to:
+https://phosphoricons.com/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>{Title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla&family=Lato&family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/phosphor-icons"></script>
+<style>
+/* HERE IS WHERE YOU CHANGE THE COLORS */
+:root {
+--bg: #fafafa;
+--main-bg: #ffffff;
+--fnt-clr: #222222;
+--acnt: #74add8;
+--dsc-bg: #e3eef7;
+}
+
+body {
+margin: 0;
+background: var(--bg);
+font-family: 'Karla', sans-serif;
+color: var(--fnt-clr);
+font-size: 16px;
+line-height: 150%;
+}
+
+a {
+text-decoration: none;
+color: var(--acnt);
+transition: all 0.4s;
+-webkit-transition: all 0.4s;
+-moz-transition: all 0.4s;
+-ms-transition: all 0.4s;
+-o-transition: all 0.4s;
+}
+
+a:hover {color: var(--fnt-clr);}
+
+/* content */
+main {
+width: 700px;
+background: var(--main-bg);
+position: absolute;
+left: 50%; top: 50%;
+transform: translate(-50%, -50%);
+}
+
+/* topbar */
+.top {
+padding: 1em 1.5em;
+display: flex;
+justify-content: space-between;
+}
+
+.blogttl {
+display: inline-block;
+vertical-align: middle;
+font-size: 1.15em;
+margin: 0; padding: 0;
+}
+
+.blogttl span {
+font-weight: 700;
+color: var(--acnt);
+}
+
+.links a {
+margin: 0 8px;
+color: var(--fnt-clr);
+}
+
+.links a:hover {color: var(--acnt);}
+
+.desc {
+padding: 1em;
+background: var(--dsc-bg);
+margin: 1em auto 0;
+width: calc(100% - 16px - 2em);
+}
+
+/* cpntent */
+.cont {padding: .5em 1em 0;}
+.box {margin: 1.5em 0;}
+.box .ttl {margin-bottom: .75em;}
+
+.box .ttl i {
+font-size: 1.1em;
+vertical-align: middle;
+margin-right: 4px;
+color: var(--acnt);
+}
+
+.box a {margin: 0 .75em .75em 0;}
+
+.crd {
+position: fixed;
+bottom: 10px; right: 10px;
+padding: .75em;
+text-transform: uppercase;
+font-size: .9em;
+}
+
+/* media queries and responsiveness */
+@media only screen and (max-width: 720px) {
+main {
+width: 95%;
+}
+}
+</style>
+</head>
+<body>
+<main>
+<!-- topbar -->
+<div class="top">
+<div class="blogttl"><span>{Name}'s</span> navigation</div>
+
+<div class="links">
+<a href="/">home</a>
+<a href="/ask">ask</a>
+<a href="https://tumblr.com/dashboard">dashboard</a>
+</div>
+</div>
+
+<!-- description -->
+<div class="desc">
+put whatever you want here. <i>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</i>
+</div>
+
+<!-- content -->
+<div class="cont">
+<!-- copy and paste as needed, from here  -->
+<div class="box">
+<div class="ttl"><i class="ph-star-bold"></i> group name</div>
+<a href="/">one</a>
+<a href="/">two</a>
+<a href="/">three</a>
+<a href="/">four</a>
+<a href="/">five</a>
+</div>
+<!-- to here -->
+</div>
+</main>
+<!-- credit: DO NOT REMOVE. If you ever want to move my credit, send me a message. -->
+<a href="https://enbythemes.tumblr.com" class="crd" title="code by rou">enby</a>
+</body>
+</html>
