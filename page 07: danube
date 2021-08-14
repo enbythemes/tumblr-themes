@@ -103,6 +103,26 @@ color: var(--acnt);
 
 .box a {margin: 0 .75em .75em 0;}
 
+/* tumblr controls by magnusthemes */
+.iframe-controls--phone-mobile {display:none!important;}
+.tmblr-iframe-pushdown {padding-top:0!important;}
+.tmblr-iframe--app-cta-button {display:none!important;}
+
+.iframe-controls--desktop {
+position:fixed;
+top:0px;
+right:0px;
+z-index:214748364789123456789;
+filter:invert(100%);
+-webkit-filter:invert(100%);  
+ webkit-transform:scale(0.6,0.6);
+-webkit-transform-origin: 100% 0%;
+-ms-transform-origin:100% 0%;
+-ms-transform:scale(0.6,0.6);
+transform:scale(0.6,0.6);
+transform-origin:100% 0%;
+}
+
 .crd {
 position: fixed;
 bottom: 10px; right: 10px;
