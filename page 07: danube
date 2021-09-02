@@ -50,10 +50,12 @@ a:hover {color: var(--fnt-clr);}
 /* content */
 main {
 width: 700px;
+max-height: 90%;
 background: var(--main-bg);
 position: absolute;
 left: 50%; top: 50%;
 transform: translate(-50%, -50%);
+overflow: auto;
 }
 
 /* topbar */
