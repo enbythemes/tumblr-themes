@@ -1,3 +1,11 @@
+<!--
+3 am © xroub.tumblr.com
+
+credits:
+isotope combination filtering tutorial by magnusthemes.tumblr.com
+https://phosphoricons.com/
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +16,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script src="https://unpkg.com/phosphor-icons"></script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-
 <script src="https://static.tumblr.com/p0knose/FpAp5c11c/magnusthemes.combofilters.js"></script>
 
 <script>
@@ -99,6 +104,7 @@ word-wrap: break-word;
 transition: all 0.4s;
 }
 
+/* DARK MODE STYLING */
 body.night {background: var(--drk-bg); color: var(--drk-font);}
 body.night a {color: var(--drk-accent);}
 
@@ -111,13 +117,7 @@ border: 1px solid var(--drk-borders);}
 body.night .item {background: var(--drk-box);}
 body.night .item a {background: var(--drk-accent); color: var(--drk-font);}
 
-body.night .item a:hover {
-color: var(--drk-font);
-background: transparent;
-border: 1px solid var(--drk-accent);
-}
-
-/*body.night img.avtr {filter: brightness(.9) contrast(1.1);}*/
+body.night .item a:hover {color: var(--drk-font); background: transparent; border: 1px solid var(--drk-accent);}
 
 a {
 text-decoration: none;
@@ -216,6 +216,7 @@ color: var(--font);
 border: 1px solid var(--accent);
 }
 
+/* credit: DO NOT TOUCH */
 .crd {
 position: fixed;
 bottom: 15px;
@@ -249,15 +250,11 @@ header {width: 92%;}
 @media only screen and (max-width: 600px) {
 .grid .item {width: 100%; display: inline-block; margin: 1% 0;}
 }
-
-
 </style>
 </head>
 <body>
 <header>
-<img src="https://i.imgur.com/ds4pMIO.png" class="avtr">
-
-<!--<img src="{PortraitURL-128}" class="avtr">-->
+<img src="{PortraitURL-128}" class="avtr">
 
 <div class="links">
 <a href=""><i class="ph-house-fill"></i></a>
