@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{Title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://unpkg.com/phosphor-icons"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+<script src="https://static.tumblr.com/p0knose/FpAp5c11c/magnusthemes.combofilters.js"></script>
+
+<script>
+// isotope-combination-filtering
+$(document).ready(function() {
+ var $container = $(".grid");
+ var filters = {};
+ var $grid = $container.isotope({
+   itemSelector: ".item", 
+   percentPosition: true 
+ });
+
+$(".option-set a").click(function(e) {
+   var $this = $(this); 
+   var filterAttr = "data-filter-value";
+   var filterValue = $this.attr(filterAttr);
+   var $optionSet = $this.parents(".option-set");
+   var group = $optionSet.attr("data-filter-group");
+   var filterGroup = filters[group];
+   if (!filterGroup) {
+     filterGroup = filters[group] = [];
+   }
+   var $selectAll = $optionSet.find('a['+filterAttr+'=""]');
+   var activeClass = "selected",
+     exclClass = "exclusive";
+ comboFiltering($this,filters,filterAttr,filterValue,$optionSet,group,$selectAll,activeClass,exclClass);
+   var comboFilter = getComboFilter(filters);
+   $grid.isotope({
+     filter: comboFilter
+   });
+   $this.toggleClass(activeClass);
+   e.preventDefault();
+ });
+});
+
+// DARK MODE
+window.addEventListener("DOMContentLoaded", function() {
+const btn = document.querySelector(".lightswitch");
+
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme == "dark") {
+document.body.classList.add("night");
+}
+
+btn.addEventListener("click", function () {
+document.body.classList.toggle("night");
+
+let theme = "light";
+if (document.body.classList.contains("night")) {
+theme = "dark";
+}
+localStorage.setItem("theme", theme);
+});
+});
+</script>
+
+<style>
+/* CHANGE THE COLORS HERE */
+:root {
+--bg: #f0f0f0;
+--font: #222222;
+--header: #ffffff;
+--box: #ffffff;
+--borders: #dddddd;
+--accent: #958799;
+
+/* dark mode colors */
+--drk-bg: #222831;
+--drk-font: #f0f0f0;
+--drk-accent: #6c5b78;
+--drk-header: #393e46;
+--drk-box: #393e46;
+--drk-borders: #16181c;
+}
+
+body {
+margin: 0;
+background: var(--bg);
+font-family: 'Trebuchet MS', sans-serif;
+font-size: 14px;
+color: var(--font);
+line-height: 150%;
+word-wrap: break-word;
+transition: all 0.4s;
+}
+
+body.night {background: var(--drk-bg); color: var(--drk-font);}
+body.night a {color: var(--drk-accent);}
+
+body.night .links a, body.night .filters {background: var(--drk-header);}
+body.night .filters a {color:var(--drk-font);}
+
+body.night .links a, body.night .filters, body.night .grid .item {
+border: 1px solid var(--drk-borders);}
+
+body.night .item {background: var(--drk-box);}
+body.night .item a {background: var(--drk-accent); color: var(--drk-font);}
+
+body.night .item a:hover {
+color: var(--drk-font);
+background: transparent;
+border: 1px solid var(--drk-accent);
+}
+
+/*body.night img.avtr {filter: brightness(.9) contrast(1.1);}*/
+
+a {
+text-decoration: none;
+color: var(--accent);
+transition: all 0.4s;
+-webkit-transition: all 0.4s;
+-moz-transition: all 0.4s;
+-ms-transition: all 0.4s;
+-o-transition: all 0.4s;
+}
+
+header {
+width: 75%;
+margin: 50px auto 25px;
+display: flex;
+justify-content: center;
+}
+
+img.avtr {
+width: 125px;
+height: 125px;
+border-radius: 8px;
+}
+
+.links a, .filters {
+background: var(--header);
+border: 1px solid var(--borders);
+border-radius: 8px;
+}
+
+.links {margin: 0 15px;}
+
+.links a {
+background: var(--header);
+border: 1px solid var(--borders);
+border-radius: 5px;
+padding: 8px;
+font-size: 18px;
+display: flex;
+margin-bottom: 10px;
+}
+
+.links a:hover {
+color: var(--header);
+background: var(--accent);
+}
+
+.filters {
+width: calc(100% - 130px - 1.25em - 35px);
+height: 100%;
+max-height: 120px;
+padding: 4px 10px;
+overflow: scroll;
+}
+
+.filters ul {padding:0;}
+.filters li {list-style-type: none; display: inline-block;}
+.filters li a {color: var(--font); margin: 0 5px;}
+.filters ul b {margin: 0 5px;}
+.selected {font-weight: bold; border-bottom: 2px solid var(--accent);}
+
+/* content */
+.grid {
+width: 90%;
+height: calc(100vh - 230px);
+margin: 0 auto 25px;
+}
+
+.grid .item {
+display: block;
+background: var(--box);
+width: 31%;
+box-sizing: border-box;
+padding: 10px;
+margin: 1%;
+border: 1px solid var(--borders);
+border-radius: 5px;
+}
+
+.item h2 {margin: 0 0 5px;}
+
+.item a {
+display: block;
+text-align: center;
+background: var(--accent);
+color: var(--font);
+padding: 6px 8px;
+margin: 0 auto;
+border-radius: 3px;
+border: 1px solid var(--accent);
+}
+
+.item a:hover {
+background: transparent;
+color: var(--font);
+border: 1px solid var(--accent);
+}
+
+.crd {
+position: fixed;
+bottom: 15px;
+right: 15px;
+}
+
+/* tumblr controls by magnusthemes */
+.iframe-controls--desktop {
+position: fixed;
+top: 0px; right: 0px;
+z-index: 214748364789123456789;
+-webkit-transform:scale(0.6,0.6);
+-webkit-transform-origin: 100% 0%;
+-ms-transform-origin:100% 0%;
+-ms-transform:scale(0.6,0.6);
+transform:scale(0.6,0.6);
+transform-origin:100% 0%;
+}
+
+.iframe-controls--phone-mobile {display:none!important;}
+.tmblr-iframe-pushdown {padding-top:0!important;} 
+.tmblr-iframe--app-cta-button {display:none!important;}
+
+/* MEDIA QUERIES FOR RESPONSIVENESS */
+@media only screen and (max-width: 720px) {
+header {width: 92%;}
+.filters {width: calc(100% - 130px - 1.25em - 80px);}
+.grid .item {width: 48%; display: inline-block;}
+}
+
+@media only screen and (max-width: 600px) {
+.grid .item {width: 100%; display: inline-block; margin: 1% 0;}
+}
+
+
+</style>
+</head>
+<body>
+<header>
+<img src="https://i.imgur.com/ds4pMIO.png" class="avtr">
+
+<!--<img src="{PortraitURL-128}" class="avtr">-->
+
+<div class="links">
+<a href=""><i class="ph-house-fill"></i></a>
+<a href="/ask"><i class="ph-envelope-fill"></i></a>
+<a class="lightswitch"><i class="ph-moon-fill"></i></a>
+</div>
+
+<!-- FILTERS -->
+
+<!-- you will notice that each group has the class "exclusive" after "filter option-set". this means that you can ONLY pick ONE filter from this group. if you would like to get rid of that, delete ONLY "exclusive".
+
+I have written up a simple filter template for anyone who needs/wants it. To change the filters tags, only replace the sample tag, that complete directly after "data-filter-value" with whatever you want. Example: "complete" to "whatever". IF you don't know what it is, Don't delete it.
+
+To change the group and individual filter names, find the example name "Group One" and "Completed" with whatever you want. -->
+
+<div class="filters">
+
+<ul class="filter option-set exclusive" data-filter-group="gen">
+<li class="filter option-set exclusive"><a href="#" data-filter-value="" class="reset selected">All</a></li> <!-- IMPROTANT! make sure not to delete! -->
+<li class="filter option-set exclusive"><a href="#" data-filter-value=".fave">Favorites</a></li>
+</ul>
+
+<ul class="filter option-set exclusive" data-filter-group="status">
+<li><b>Group One:</b></li>
+<li><a href="#" data-filter-value="" class="selected">All</a></li>
+<li><a href="#" data-filter-value=".completed">Competed</a></li>
+<li><a href="#" data-filter-value=".incomplete">Incomplete</a></li>
+<li><a href="#" data-filter-value=".ongoing">In Progress</a></li>
+</ul>
+
+<ul class="filter option-set exclusive" data-filter-group="rating">
+<li><b>Group Two:</b></li>
+<li><a href="#" data-filter-value="" class="selected">All</a></li>
+<li><a href="#" data-filter-value=".general">General</a></li>
+<li><a href="#" data-filter-value=".teen">Teen</a></li>
+<li><a href="#" data-filter-value=".mature">Mature</a></li>
+<li><a href="#" data-filter-value=".explicit">Explicit</a></li>
+</ul>
+</div>
+</header>
+<!-- HEADER ENDS -->
+
+<!-- GRID STARTS -->
+<section class="grid">
+<!-- to add more filters put in the tag after "item". make sure NOT to delete the item class. IMPORTANT! -->
+
+<!-- COPY FROM HERE -->
+<div class="item">
+<h2>Title</h2>
+<i>author</i>
+<p><b>Word count: </b> 0,000</p>
+<p><b>Summary: </b> About</p>
+<a href="/">Link</a>
+</div>
+<!-- TO HERE AND PASTE AS NEEDED -->
+</section>
+<!-- GRID ENDS -->
+<!-- credit: DO NOT TOUCH -->
+<div class="crd"><a href="https://enbythemes.tumblr.com" class="crd" title="code by rou"><i class="ph-sketch-logo"></i></a></div>
+</body>
+</html>
