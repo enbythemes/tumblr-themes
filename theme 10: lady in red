@@ -82,6 +82,31 @@ function flexFrame() {   $(".caption").each(function() {
 $(this).find("iframe").wrap("<div class='capframe'></div>");
 flexibleFrames($(".capframe"));    });    flexibleFrames($(".video")); }
 $(document).ready(flexFrame);
+
+// photoset.css by annasthms and eggdesign
+function gatherData(images, arr) {
+for (let i = 0; i < images.length; i++) {
+let currentData = {
+"width": images[i].getAttribute('data-width'),
+"height": images[i].getAttribute('data-height'),
+"low_res": images[i].getAttribute('data-lowres'),
+"high_res": images[i].getAttribute('data-highres')
+};
+arr.push(currentData);
+}
+}
+function getIndex(elem) {
+let i = 0;
+while( (elem = elem.previousElementSibling) != null ) i++;
+return i;
+}
+function lightbox(elem) {
+let currentPhotoset = elem.parentNode;
+let photosetPhotos = currentPhotoset.getElementsByTagName('div');
+let data = [];
+gatherData(photosetPhotos, data);
+Tumblr.Lightbox.init(data, getIndex(elem) + 1);
+}
 </script>
 
 <style>
@@ -517,8 +542,7 @@ main, aside, section {width: 90vw;}
 <main>
 
 <aside>
-<img src="https://64.media.tumblr.com/b26f4045a40f84a3019cfd65ada0a751/tumblr_inline_pls6joWMlJ1qbeb9f_250.png" class="avtr">
-
+<img src="{PortraitURL-64}" class="avtr">
 <h3 class="blogttl">{Title}</h3>
 
 {block:Description}
@@ -542,7 +566,6 @@ main, aside, section {width: 90vw;}
 {block:HasPages}{block:Pages}
 <a href="{URL}">{Label}</a>
 {/block:Pages}{/block:HasPages}
-
 </div>
 </aside>
 
