@@ -3,7 +3,7 @@ lady in red © xroub.tumblr.com
 
 base codes by egg.design, annasthms, and seyche
 photosets by egg.design and annasthms
-nfp photoset fix and mini spotify player by glenthemes
+nfp photoset fix by glenthemes
 video resize by nouvae
 Phosphor Icons by Helena Zhang and Toby Fried
 -->
@@ -107,13 +107,6 @@ let data = [];
 gatherData(photosetPhotos, data);
 Tumblr.Lightbox.init(data, getIndex(elem) + 1);
 }
-
-// mini spotify player by glenthemes
-var spotsongs = document.querySelectorAll("iframe[src*='open.spotify.com'][src*='track'], figure[data-npf*='open.spotify.com'][data-npf*='track']");
-
-Array.prototype.forEach.call(spotsongs,function(minitrack){
-minitrack.setAttribute("height","80");
-});
 </script>
 
 <style>
@@ -566,11 +559,11 @@ main, aside, section {width: 90vw;}
 </div>
 <!-- dropdown links -->
 <div class="dropdown">
-{block:ifLinkOne}<a href="{text:link one url}">link one</a>{/block:ifLinkOne}
-{block:ifLinkOne}<a href="{text:link two url}">link two</a>{/block:ifLinkTwo}
-{block:ifLinkOne}<a href="{text:link three url}">link three</a>{/block:ifLinkThree}
-{block:ifLinkOne}<a href="{text:link four url}">link four</a>{/block:ifLinkFor}
-{block:ifLinkOne}<a href="{text:link five url}">link five</a>{/block:ifLinkFive}
+{block:ifLinkOne}<a href="{text:link one url}">{text:link one}</a>{/block:ifLinkOne}
+{block:ifLinkTwo}<a href="{text:link two url}">{text:link two}</a>{/block:ifLinkTwo}
+{block:ifLinkThree}<a href="{text:link three url}">{text:link three}</a>{/block:ifLinkThree}
+{block:ifLinkFour}<a href="{text:link four url}">{text:link four}</a>{/block:ifLinkFour}
+{block:ifLinkFive}<a href="{text:link five url}">{text:link five}</a>{/block:ifLinkFive}
 
 {block:HasPages}{block:Pages}
 <a href="{URL}">{Label}</a>
@@ -822,6 +815,6 @@ main, aside, section {width: 90vw;}
 {/block:Pagination}
 </section>
 </main>
-<a href="https://enbythemes.tumblr.com" title="code by rou" class="crd"><i class="ph-sketch-logo"></i></a>
+<!--<a href="https://enbythemes.tumblr.com" title="code by rou" class="crd"><i class="ph-sketch-logo"></i></a>-->
 </body>
 </html>
