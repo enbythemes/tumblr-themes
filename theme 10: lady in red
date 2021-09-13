@@ -3,7 +3,7 @@ lady in red © xroub.tumblr.com
 
 base codes by egg.design, annasthms, and seyche
 photosets by egg.design and annasthms
-nfp photoset fix by glenthemes
+nfp photoset fix and mini spotify player by glenthemes
 video resize by nouvae
 Phosphor Icons by Helena Zhang and Toby Fried
 -->
@@ -107,6 +107,13 @@ let data = [];
 gatherData(photosetPhotos, data);
 Tumblr.Lightbox.init(data, getIndex(elem) + 1);
 }
+
+// mini spotify player by glenthemes
+var spotsongs = document.querySelectorAll("iframe[src*='open.spotify.com'][src*='track'], figure[data-npf*='open.spotify.com'][data-npf*='track']");
+
+Array.prototype.forEach.call(spotsongs,function(minitrack){
+minitrack.setAttribute("height","80");
+});
 </script>
 
 <style>
@@ -265,13 +272,13 @@ width: {select:post size};
 margin-left: 375px;
 }
 
-.posts {
+.posts, .pagination {
 background: var(--posts);
-margin-bottom: 100px;
 border: 1px solid var(--borders);
 border-radius: 4px;
 }
 
+.posts {margin-bottom: 100px;}
 .caption {padding: 15px;}
 .caption p:first-of-type {margin-top: 0; padding-top: 0;}
 .caption p:last-of-type {margin-bottom: 0; padding-bottom: 0;}
@@ -308,18 +315,13 @@ transform: scaleX(-1);
 
 .src {margin-top: 15px;}
 
-p.npf_quote {
-font-family: inherit;
-font-size: 1.4em;
-}
-
+p.npf_quote {font-family: inherit; font-size: 1.4em;}
 p.npf_quote:first-of-type {margin-top: 0;}
 p.npf_quote:last-of-type {margin-bottom: 0;}
 
 /* CHAT */
 .chat {list-style: none; padding: 0; margin: 0;}
 .chat li {margin: 1em 0;}
-
 .chat li:first-of-type {margin-top: 0;}
 .chat li:last-of-type {margin-bottom: 0;}
 
@@ -371,7 +373,7 @@ margin-right: 3px;
 opacity: .9;
 }
 
-.npf-link-block {border-radius: 0; border: none; background-color: {color:posts};}
+.npf-link-block {border-radius: 0; border: none; background-color: {color: var(--posts);}
 .npf-link-block .title {font-size: 1.4em; border-bottom: none;}
 .npf-link-block.has-poster, .npf-link-block.no-poster {padding: 0; margin: 0;}
 
@@ -473,10 +475,17 @@ opacity: 0;
 
 /* TAGS */
 .tags {margin: -90px 0 100px; padding: 5px 15px;}
-.tags a {margin: 0 8px 8px 0; font-size: 0.95em;}
+
+.tags a {
+display: inline-block;
+margin: 0 10px 10px 0;
+color: var(--font);
+}
+
+.tags a:hover {color: var(--accent);}
 
 /* PAGINATION */
-.pagination {text-align: center;}
+.pagination {text-align: center; padding: 15px;}
 .pagination a {margin: 0 8px;}
 
 /* POST NOTES */
@@ -696,7 +705,6 @@ main, aside, section {width: 90vw;}
 {block:Answerer}
 <div class="answer_container">
 <div class="answerer">
-
 {Answerer}
 </div>
 <div class="answer_text">{Answer}</div>
@@ -704,7 +712,6 @@ main, aside, section {width: 90vw;}
 {block:Reblogs}
 <div class="reply_container">
 <div class="replier">
-
 {block:HasPermalink}<a href="{Permalink}">{/block:HasPermalink}{Username}{block:HasPermalink}</a> {/block:HasPermalink}
 </div>
 <div class="reply">{Body}</div>
@@ -763,39 +770,24 @@ main, aside, section {width: 90vw;}
 <!-- POST FOOTER -->
 {block:Date}
 <div class="footer">
-
 {block:PinnedPostLabel}
-<div class="pinned-post">
-
-<i class="ph-push-pin"></i>
-
-</div>
+<div class="pinned-post"><i class="ph-push-pin"></i></div>
 {/block:PinnedPostLabel}
-
 
 <a href="{Permalink}">{Month} {DayofMonth}{DayofMonthSuffix}, {Year}</a>
 
 {block:PermalinkPage}
 {block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
-
-{block:RebloggedFrom}
-<a href="{ReblogParentURL}">via</a>
-<a href="{ReblogRootURL}">source</a>
-{/block:RebloggedFrom}
-
-{block:ContentSource}<
-a href="{SourceURL}">{lang:Source}</a>
-{/block:ContentSource}
+{block:RebloggedFrom}<a href="{ReblogParentURL}">via</a>{/block:RebloggedFrom}
+{block:ContentSource}<a href="{ReblogRootURL}">source</a>{/block:ContentSource}
 {/block:PermalinkPage}
 
 <div class="like-reblog">
 <a href="{ReblogURL}" target="_blank" >reblog</a>
 <a class="likeb" href="#">{LikeButton}<span class="actual-button">like</span></a>
 </div>
-
 </div>
 {/block:Date}
-
 </article>
 
 <!-- TAGS -->
@@ -817,7 +809,6 @@ a href="{SourceURL}">{lang:Source}</a>
 {/block:Date}{/block:PermalinkPage}
 {/block:Posts}
 
-
 <!-- PAGINATION -->
 {block:Pagination}
 <div class="pagination">
@@ -829,9 +820,7 @@ a href="{SourceURL}">{lang:Source}</a>
 {block:NextPage}<a href="{NextPage}">next page</a>{/block:NextPage}
 </div>
 {/block:Pagination}
-
 </section>
-
 </main>
 <a href="https://enbythemes.tumblr.com" title="code by rou" class="crd"><i class="ph-sketch-logo"></i></a>
 </body>
