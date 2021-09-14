@@ -4,7 +4,7 @@ lady in red © xroub.tumblr.com
 base codes by egg.design, annasthms, and seyche
 photosets by egg.design and annasthms
 nfp photoset fix by glenthemes
-video resize by nouvae
+video resize script by nouvae
 Phosphor Icons by Helena Zhang and Toby Fried
 -->
 
@@ -63,11 +63,13 @@ Phosphor Icons by Helena Zhang and Toby Fried
 
 <!-- scripts -->
 <link href="https://fonts.googleapis.com/css?family={text:Google Font}:700,400" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://unpkg.com/phosphor-icons"></script>
 <script src="//npf-images-v3.github.io/script.js"></script>
 <link rel="stylesheet" href="//npf-images-v3.github.io/recon.css">
 <link href="https://static.tumblr.com/0podkko/oDSpg7y88/photosets.css" rel="stylesheet">
+<script src="https://rawgit.com/robinpx/tumblr/master/scripts/flexibleFrames/flexibleFrames.min.js"></script>
 
 <script>
 // dropdown links
@@ -76,12 +78,6 @@ $('.click').click(function() {
 $('.dropdown').slideToggle(500);
 });
 });
-
-// video resize script by nouvae
-function flexFrame() {   $(".caption").each(function() {
-$(this).find("iframe").wrap("<div class='capframe'></div>");
-flexibleFrames($(".capframe"));    });    flexibleFrames($(".video")); }
-$(document).ready(flexFrame);
 
 // photoset.css by annasthms and eggdesign
 function gatherData(images, arr) {
@@ -107,6 +103,17 @@ let data = [];
 gatherData(photosetPhotos, data);
 Tumblr.Lightbox.init(data, getIndex(elem) + 1);
 }
+
+// video resize script by nouvae
+function flexFrame() {
+$(".caption").each(function() {
+$(this).find("iframe").wrap("<div class='iframe-flex'></div>");
+flexibleFrames($(".iframe-flex"));
+});
+flexibleFrames($(".video"));
+}
+
+$(document).ready(flexFrame);
 </script>
 
 <style>
@@ -116,9 +123,8 @@ Tumblr.Lightbox.init(data, getIndex(elem) + 1);
 --posts: {color:posts};
 --accent: {color:accent};
 --borders: {color:borders};
-
 --NPF-Caption-Spacing: 1em;
---NPF-Image-Spacing: 4px;
+--NPF-Image-Spacing: {select:photoset gutter size};
 }
 
 body {
@@ -273,9 +279,8 @@ border-radius: 4px;
 }
 
 .caption {padding: 15px;}
-.caption p:first-of-type {margin-top: 0; padding-top: 0;}
-.caption p:last-of-type {margin-bottom: 0; padding-bottom: 0;}
 .reblog-header {margin-bottom: 10px;}
+.reblog-header a {font-weight: 700;}
 
 .inactive:after {
 content: '(deactivated)';
@@ -283,6 +288,8 @@ margin-left: 1em;
 opacity: 0.75;
 color: var(--font);
 }
+
+.posts li, .posts blockquote, figure, video, iframe, .video, .video iframe, figure.tmblr-embed.tmblr-full, figure.tmblr-embed.tmblr-full iframe, .caption iframe {max-width: 100%;}
 
 .ttl {margin-left: 15px;}
 
@@ -308,18 +315,13 @@ transform: scaleX(-1);
 
 .src {margin-top: 15px;}
 
-p.npf_quote {
-font-family: inherit;
-font-size: 1.4em;
-}
-
+p.npf_quote {font-family: inherit; font-size: 1.4em;}
 p.npf_quote:first-of-type {margin-top: 0;}
 p.npf_quote:last-of-type {margin-bottom: 0;}
 
 /* CHAT */
 .chat {list-style: none; padding: 0; margin: 0;}
 .chat li {margin: 1em 0;}
-
 .chat li:first-of-type {margin-top: 0;}
 .chat li:last-of-type {margin-bottom: 0;}
 
@@ -412,9 +414,7 @@ border-left: 100px solid #f2f2f2;
 .audioinfo li {list-style-type: none;}
 .track {font-weight: bold; color: var(--accent);}
 
-iframe[src*='open.spotify.com'][src*='track'], figure[data-npf*='open.spotify.com'][data-npf*='track']{
-height:80px!important;
-}
+iframe[src*='open.spotify.com'][src*='track'], figure[data-npf*='open.spotify.com'][data-npf*='track']{height:80px!important;}
 
 /* ANSWERS */
 .question_container {padding: 18px 15px; background: var(--bg);}
@@ -459,10 +459,8 @@ margin-bottom: -1px;
  
 .likeb .like_button iframe {
 position: absolute;
-top: 0;
-left: 0;
-bottom: 0;
-right: 0;
+top: 0; bottom: 0;
+left: 0; right: 0;
 z-index: 2;
 opacity: 0;
 }
@@ -709,7 +707,6 @@ main, aside, section {width: 90vw;}
 {block:Answerer}
 <div class="answer_container">
 <div class="answerer">
-
 {Answerer}
 </div>
 <div class="answer_text">{Answer}</div>
@@ -717,7 +714,6 @@ main, aside, section {width: 90vw;}
 {block:Reblogs}
 <div class="reply_container">
 <div class="replier">
-
 {block:HasPermalink}<a href="{Permalink}">{/block:HasPermalink}{Username}{block:HasPermalink}</a> {/block:HasPermalink}
 </div>
 <div class="reply">{Body}</div>
@@ -776,39 +772,31 @@ main, aside, section {width: 90vw;}
 <!-- POST FOOTER -->
 {block:Date}
 <div class="footer">
-
 {block:PinnedPostLabel}
-<div class="pinned-post">
-
-<i class="ph-push-pin"></i>
-
-</div>
+<div class="pinned-post"><i class="ph-push-pin"></i></div>
 {/block:PinnedPostLabel}
-
-
 <a href="{Permalink}">{Month} {DayofMonth}{DayofMonthSuffix}, {Year}</a>
 
 {block:PermalinkPage}
-{block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+{block:NoteCount}
+<a href="{Permalink}">{NoteCountWithLabel}</a>
+{/block:NoteCount}
 
 {block:RebloggedFrom}
 <a href="{ReblogParentURL}">via</a>
-<a href="{ReblogRootURL}">source</a>
 {/block:RebloggedFrom}
 
-{block:ContentSource}<
-a href="{SourceURL}">{lang:Source}</a>
+{block:ContentSource}
+<a href="{SourceURL}">source</a>
 {/block:ContentSource}
 {/block:PermalinkPage}
 
 <div class="like-reblog">
-<a href="{ReblogURL}" target="_blank" >reblog</a>
+<a href="{ReblogURL}" target="_blank">reblog</a>
 <a class="likeb" href="#">{LikeButton}<span class="actual-button">like</span></a>
 </div>
-
 </div>
 {/block:Date}
-
 </article>
 
 <!-- TAGS -->
@@ -824,12 +812,11 @@ a href="{SourceURL}">{lang:Source}</a>
 {block:PermalinkPage}{block:Date}
 {block:NoteCount}{block:PostNotes}
 <div id="notes">
-    {PostNotes-64}
+{PostNotes-64}
 </div>
 {/block:PostNotes}{/block:NoteCount}
 {/block:Date}{/block:PermalinkPage}
 {/block:Posts}
-
 
 <!-- PAGINATION -->
 {block:Pagination}
@@ -842,9 +829,7 @@ a href="{SourceURL}">{lang:Source}</a>
 {block:NextPage}<a href="{NextPage}">next page</a>{/block:NextPage}
 </div>
 {/block:Pagination}
-
 </section>
-
 </main>
 <a href="https://enbythemes.tumblr.com" title="code by rou" class="crd"><i class="ph-sketch-logo"></i></a>
 </body>
