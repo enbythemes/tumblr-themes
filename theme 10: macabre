@@ -285,19 +285,23 @@ justify-content:space-between;
 }
 
 .pagination a, .pagination span {
-display:inline-block;
+display: inline-block;
 padding: 10px 12px;
 border: 1px solid var(--borders);
 overflow: hidden;
 }
 
 .prev a, .next a {
-position:absolute;
+position: absolute;
 margin: 0;
 z-index: 99999;
 }
 
-.pagination span, .mob_pagination span {background: transparent; color: rgba({RGBcolor:font}, 0.4);}
+.pagination span, .mob_pagination span {
+background: transparent;
+color: rgba({RGBcolor:font}, 0.4);
+}
+
 .pagination a:hover, .mob_pagination a:hover {background: var(--links);}
 
 /* POSTS */
@@ -430,11 +434,6 @@ opacity: .9;
 .link-caption {position: relative; margin-top: 10px;}
 
 /* AUDIO */
-.audio-content-wrap {
-/*background-color: rgba(0, 0, 0, 0.3);*/
-padding: 2em;
-}
-
 .album-art {
 z-index: 1;
 display: inline-block;
@@ -468,16 +467,15 @@ border-radius: 50%;
 }
 
 .audioinfo {
-/*background-color: rgba(0, 0, 0, 0.3);*/
 display: inline-block;
 height: 100px;
 max-width: calc(100% - 100px);
 margin-left: 100px;
+padding-left: 1em;
 display: flex;
 justify-content: center;
 flex-direction: column;
 box-sizing: border-box;
-padding-left: 2em;
 }
 
 .audioinfo li {list-style-type: none; font-size: 1.1em;}
@@ -537,7 +535,7 @@ font-size: 1em;
 content: '(deactivated)';
 margin-left: 1em;
 opacity: 0.75;
-color: {color:text};
+color: var(--font);
 }
 
 p.tmblr-attribution {margin-top: 1em !important;}
@@ -629,10 +627,6 @@ position:fixed;
 top:0px;
 right:0px;
 z-index:214748364789123456789;
-{block:ifDarkControls}
-filter:invert(100%);
--webkit-filter:invert(100%);
-{/block:ifDarkControls}
 -webkit-transform:scale(0.6,0.6);
 -webkit-transform-origin: 100% 0%;
 -ms-transform-origin:100% 0%;
@@ -688,15 +682,15 @@ body.night .qu {background: rgba({RGBcolor:light switch background}, 0.4);}
 body.night .src:before {background: var(--switch-posts);}
 
 body.night .src:before, 
-body.night .chat .label {color: var(--switch-bold);}
+body.night .chat .label, 
+body.night .track {
+color: var(--switch-bold);}
 
 body.night .link {
 background: rgba({RGBcolor:light switch background}, 0.4);
 border: 6px solid var(--switch-posts);}
 
 body.night .link-host, body.night .link-txt {color: var(--switch-font);}
-
-body.night .track {color: var(--switch-bold);}
 
 body.night .asker-icon, 
 body.night .question_container {
@@ -766,14 +760,14 @@ justify-content:space-between;
 }
 
 .mob_pagination a, .mob_pagination span {
-display:inline-block;
+display: inline-block;
 padding: 10px 12px;
 border: 1px solid var(--borders);
 overflow: hidden;
 }
 
 .prev a, .next a {
-position:absolute;
+position: absolute;
 margin: 0;
 z-index: 99999;
 }
@@ -788,15 +782,12 @@ aside {width: calc(90vw - 30px);}
 .side_container {width: 100%;}
 section.post_container {width: 90vw;}
 }
-
-
 {CustomCSS}
 </style>
 </head>
 <body>
 <aside>
 <div class="side_container">
-
 <div class="side_top_links">
 <a href="/" title="refresh"><i class="cp cp-home"></i></a>
 {block:AskEnabled}<a href="/ask" title="ask"><i class="cp cp-envelope"></i></a>{/block:AskEnabled}
@@ -829,11 +820,9 @@ section.post_container {width: 90vw;}
 {block:Pagination}
 <div class="pagination">
 <div class="prev">{block:PreviousPage}<a href="{PreviousPage}">back</a>{/block:PreviousPage}<span>back</span></div>
-
 <div class="next">{block:NextPage}<a href="{NextPage}">forth</a>{/block:NextPage}<span>forth</span></div>
 </div>
 {/block:Pagination}
-
 </div>
 </aside>
 
@@ -1066,15 +1055,15 @@ section.post_container {width: 90vw;}
 </div>
 
 {block:PermalinkPage}
-<div class="sources">
 {block:RebloggedFrom}
+<div class="sources">
 {block:ifSpookyIcons}<i class="cp cp-ghost"></i>{/block:ifSpookyIcons}
 {block:ifNotSpookyIcons}<i class="cp cp-user"></i>{/block:ifNotSpookyIcons}
 <a href="{ReblogParentURL}">via</a>
 <a href="{ReblogRootURL}">original</a>
-{/block:RebloggedFrom}
 {block:ContentSource}<a href="{SourceURL}">{lang:Source}</a>{/block:ContentSource}
 </div>
+{/block:RebloggedFrom}
 {/block:PermalinkPage}
 {/block:Date}
 </article>
