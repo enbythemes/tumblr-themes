@@ -75,7 +75,6 @@ pagination tutorial by ricecodes
 
 <meta name="if:Spooky Icons" content="">
 <meta name="if:Grayscale Avatar" content="">
-<meta name="if:Dark Controls" content="">
 
 <!-- JQUERY -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -571,6 +570,12 @@ padding: 10px;
 background: var(--links);
 }
 
+.pinned .cp {
+background: transparent;
+border: 1px solid var(--borders);
+padding: 9px 10px;
+}
+
 .post_info a, .sources a {
 padding: 8px 10px 6px;
 border: 1px solid var(--borders);
@@ -712,6 +717,11 @@ background: rgba({RGBcolor:light switch background}, 0.6);}
 body.night .post_info .cp, body.night .sources .cp {
 background: var(--switch-links);
 color: var(--switch-font);}
+
+body.night .pinned .cp {
+background: transparent;
+border: 1px solid var(--switch-borders);
+}
 
 body.night .sources {border-top: 1px solid var(--switch-borders);}
 body.night .post_controls .reblog {color: var(--switch-font);}
@@ -1041,6 +1051,9 @@ section.post_container {width: 90vw;}
 {block:Date}
 <div class="footer">
 <div class="post_info">
+{block:PinnedPostLabel}
+<span class="pinned"><i class="cp cp-pin"></i></span>
+{/block:PinnedPostLabel}
 {block:ifSpookyIcons}<i class="cp cp-bat"></i>{/block:ifSpookyIcons}
 {block:ifNotSpookyIcons}<i class="cp cp-alarm"></i>{/block:ifNotSpookyIcons}
 <a href="{Permalink}">{Month} {DayofMonth}{DayofMonthSuffix}, {Year}</a>
