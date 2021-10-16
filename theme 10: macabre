@@ -626,6 +626,16 @@ margin: 0;
 ol.notes li {margin: 12px;}
 ol.notes li img {display: none;}
 
+.crd {
+position: fixed;
+bottom: 10px;
+right: 10px;
+background: {color:posts};
+padding: .75em;
+text-transform: uppercase;
+font-size: .9em;
+}
+
 /* TUMBLR CONTROLS by magnusthemes */
 .iframe-controls--desktop {
 position:fixed;
@@ -1109,6 +1119,7 @@ section.post_container {width: 90vw;}
 {/block:Pagination}
 
 </section>
-
+<!-- credit: DO NOT REMOVE. If you ever want to move my credit, send me a message. -->
+<a href="https://enbythemes.tumblr.com" class="crd" title="code by rou">enby</a>
 </body>
 </html>
