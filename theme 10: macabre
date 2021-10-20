@@ -829,7 +829,7 @@ section.post_container {width: 90vw;}
 <div class="side_bottom_links">
 {block:ifLinkOne}<a href="{text:link one url}">{text:link one}</a>{/block:ifLinkOne}
 {block:ifLinkTwo}<a href="{text:link two url}">{text:link two}</a>{/block:ifLinkTwo}
-{block:ifLinkThree}<a href="{text:link three url}">{text:link three}</a>{/block:LinkThree}
+{block:ifLinkThree}<a href="{text:link three url}">{text:link three}</a>{/block:ifLinkThree}
 {block:ifLinkFour}<a href="{text:link four url}">{text:link four}</a>{block:ifLinkFour}
 {block:HasPages}{block:Pages}
 <a href="{URL}">{Label}</a>
