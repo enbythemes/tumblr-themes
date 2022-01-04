@@ -1,5 +1,8 @@
 <!--
 lola © xroub.tumblr.com
+originally posted: december 7th, 2021
+last updated: january 3rd, 2022
+- fixed phosphor icons
 
 Originally inspired by Report Template on Google Docs.
 
@@ -386,7 +389,7 @@ opacity: 0.8;
 }
 
 .site-name::before {
-content: "\f20d";
+content: "\f4ab";
 font-family: "Phosphor" !important;
 color: var(--font);
 opacity: 0.75;
@@ -439,8 +442,8 @@ vertical-align: middle;
 margin-right: 8px;
 }
 
-.track::before {content: "\f226";}
-.artist::before {content: "\f346";}
+.track::before {content: "\f3a3";}
+.artist::before {content: "\f613";}
 
 iframe[src*='open.spotify.com'][src*='track'], figure[data-npf*='open.spotify.com'][data-npf*='track']{height:80px!important; width:100%!important;}
 iframe.soundcloud_audio_player {height: 150px!important; width: 100%!important;}
@@ -502,8 +505,8 @@ vertical-align: middle;
 margin-right: 8px;
 }
 
-.notes li.note.like::before {content: "\f1ca"; color: #f43a3a;}
-.notes li.note.reblog::before {content: "\f29f";}
+.notes li.note.like::before {content: "\f460"; color: #f43a3a;}
+.notes li.note.reblog::before {content: "\f554";}
 
 /* TUMBLR CONTROLS */
 .controls-button {
