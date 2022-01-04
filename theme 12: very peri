@@ -1,5 +1,8 @@
 <!-- 
 very peri © xroub.tumblr.com
+originally posted: december 15th, 2021
+last updated: january 3rd, 2022
+
 
 CREDITS:
 photo credit to Joyce Toh on Unsplash
@@ -271,9 +274,7 @@ display: inline-block;
 vertical-align: middle;
 }
 
-.lightswitch::before {content: "\f21f";}
-.fontswitch::before {content: "\f310";}
-.more, .lightswitch, .fontswitch {cursor: pointer;}
+.more {cursor: pointer;}
 
 /* SLIDE OUT MENU */
 .fade {
@@ -484,7 +485,7 @@ padding: 15px 25px;
 .src {letter-spacing: 0.05em; padding: 20px 15px;}
 
 .qu::before, p.npf_quote::before {
-content: "\f295";
+content: "\f549";
 font-size: 28px;
 transform: rotate(180deg);
 -webkit-transform: rotate(180deg);
@@ -546,7 +547,7 @@ margin-top: .5em;
 font-size: .8em;
 }
 
-.site-name::before {content: "\f20d"; margin-right: 5px;}
+.site-name::before {content: "\f4ab"; margin-right: 5px;}
 
 .npf-link-block {border-radius: 0; border: none; background-color: {color:posts};}
 .npf-link-block .title {border-bottom: none;}
@@ -594,8 +595,8 @@ vertical-align: middle;
 margin-right: 8px;
 }
 
-.track::before {content: "\f226";}
-.artist::before {content: "\f346";}
+.track::before {content: "\f3a3";}
+.artist::before {content: "\f613";}
 
 iframe[src*='open.spotify.com'][src*='track'], figure[data-npf*='open.spotify.com'][data-npf*='track']{height:80px!important; width:100%!important;}
 iframe.soundcloud_audio_player {height: 150px!important; width: 100%!important;}
@@ -703,8 +704,8 @@ vertical-align: middle;
 margin-right: 8px;
 }
 
-.notes li.note.like::before {content: "\f1ca"; color: #f43a3a;}
-.notes li.note.reblog::before {content: "\f29f";}
+.notes li.note.like::before {content: "\f460"; color: #f43a3a;}
+.notes li.note.reblog::before {content: "\f554";}
 
 /* PAGINATION */
 .pagination {
