@@ -1,0 +1,580 @@
+<!--
+rosa © xroub.tumblr.com 
+April 2022
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>{Title}</title>
+ 
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/phosphor-icons"></script>
+<style>
+* {box-sizing: border-box;}
+
+:root {
+/*  COLORS  */
+  --clr-bg: #1b1c20;
+  --clr-font: #f0f0f0;
+  --clr-accent: #e77878;
+
+  --clr-side: #27282e; /* color of sidebar */
+  --clr-boxes: #27282e; /* color of the content boxes */
+  --clr-more-bg: #1f2024; /* color of the background for the more link */
+  --clr-box-shadow: 15,15,15; /* if you don't know how to get rgb colors, here is a website to check out: https://htmlcolors.com/google-color-picker 
+  if you don't want box shadows, just delete this line */
+
+/*  POP UPS  */
+  --clr-popup-bg: #27282e; /* */
+  --clr-popup-hdr: #1b1c20; /* color of the popup header */
+  --clr-popup-close-btn: #e77878; /* color of the close button */
+
+/*  FONTS  */
+  --ff-body: 'Nunito', sans-serif;
+  --ff-heading: 'Playfair Display', serif;
+  --size-font: 16px;
+
+/*  OTHER */
+  --img-gray-filter: 100%; /* if you don't want a black and white image, just set it to 0% */
+  --modal-bg-color: 0,0,0; /* if you don't know how to get rgb colors, here is a website to check out: https://htmlcolors.com/google-color-picker */
+  --modal-bg-transparency: 0.75; /* the higher the number, the more solid the background color will be. 0 = no background and 1 = full background */
+}
+
+
+/* TRANSITIONS */
+body, a, a:hover, .more, .more:hover, img {
+  transition: all .4s;
+  -moz-transition: all .4s;
+  -webkit-transition: all .4s;
+}
+
+/* HTML */
+body {
+  margin: 0;
+  background: var(--clr-bg);
+  font-family: var(--ff-body);
+  font-size: var(--size-font);
+  color: var(--clr-font);
+  line-height: 150%;
+  word-break: break-word;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-accent);
+}
+
+blockquote {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid var(--clr-accent);
+}
+
+b, strong {
+  font-weight: 900;
+  color: var(--clr-accent);
+}
+
+/* CONTAINER  */
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* SIDEBAR */
+aside {
+  background: var(--clr-side);
+  height: 100vh;
+  width: 150px;
+  padding: 1em 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  overflow: auto;
+}
+
+aside::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 75px;
+  width: 1px;
+  height: 100vh;
+  background: var(--clr-accent);
+  opacity: 0.25;
+  z-index: -1;
+}
+
+.avatar {
+  width: 75px; height: 75px;
+  border-radius: 50%;
+  padding: 6px;
+  background: var(--clr-side);
+  border: 1px solid var(--clr-accent);
+}
+
+ul.links {
+  list-style: none;
+  margin: 1em 0 0;
+  padding: 0.5em 1em;
+}
+
+ul.links li a {
+  display: block;
+  background: var(--clr-bg);
+  padding: 1em 1.1em 0.75em;
+  border-radius: 50%;
+  margin: 1.15em 0;
+}
+
+ul.links li a [class^="ph"] {font-size: 20px;}
+
+ul.links li a:hover {
+  color: var(--clr-font);
+  background: var(--clr-accent);
+}
+
+/* CONTENT */
+section.grid {
+  width: calc(100% - 150px - 2em);
+  height: 95vh;
+  margin: 0 1em;
+  padding: 45px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  overflow-y: auto;
+}
+
+article {
+  width: 22%;
+  max-width: 300px;
+  min-width: 175px;
+}
+
+.item {
+  background: var(--clr-boxes);
+  box-shadow: 4px 4px 4px 1px rgba(var(--clr-box-shadow),0.5);
+  -webkit-box-shadow: 4px 4px 4px 1px rgba(var(--clr-box-shadow),0.5);
+  border-radius: 8px 8px 0 0;
+}
+
+.item img {
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+  max-height: 330px;
+  object-fit: cover;
+  filter: grayscale(var(--img-gray-filter));
+}
+
+.item:hover img {filter: grayscale(0%);}
+
+.name {
+  font-family: var(--ff-heading);
+  font-size: 1.5em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  font-weight: bold;
+  background: var(--clr-boxes);
+  padding: 0.75em 1em;
+  border-radius: 16px 16px 0 0;
+  transform: translateY(-25px);
+  margin-bottom: -25px;
+}
+
+.name:first-letter {color: var(--clr-accent);}
+
+.more {
+  text-align: center;
+  padding: 1em;
+  font-size: 1.1em;
+  background: var(--clr-more-bg);
+  color: var(--clr-accent);
+  cursor: help;
+}
+
+.more [class^="ph"] {
+  vertical-align: middle;
+  margin: 0 4px 0 0;
+}
+
+.more:hover {color: var(--clr-font);}
+
+/* POP UPS */
+#modal {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 999;
+  background: rgba(var(--modal-bg-color),var(--modal-bg-transparency));
+  display: none;
+}
+
+.fade {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+
+.pop {
+  position: absolute;
+  background: var(--clr-popup-bg);
+  width: 75vw;
+  max-height: 75vh;
+  max-width:calc(100% - 40px);
+  max-height:calc(100% - 40px);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  overflow-y: auto;
+}
+
+.modal-hdr {
+  display: flex;
+  justify-content: flex-end;
+  background: var(--clr-popup-hdr);
+}
+
+.close {
+  cursor: help;
+  font-size: 1.5em;
+  color: var(--clr-popup-close-btn);
+  padding: 0.5em;
+  border-radius: 0 0 0 4px;
+}
+
+.modal-body {
+  padding: 1.5em 1em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 12px;
+  text-align: justify;
+}
+
+.modal-body > div {
+  background: var(--clr-bg);
+  padding: 0.5em 1em;
+  border-radius: 4px;
+}
+
+.modal-body img {
+  max-height: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--clr-accent);
+  padding: 3px;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+
+.modal-body .colors {
+  width: 75px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px 0;
+  justify-content: center;
+  align-content: center;
+}
+
+.modal-body .colors > div {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 2px;
+}
+
+.modal-body .bio {
+  width: calc(100% - 350px);
+  height: 200px;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.modal-body .heading {
+  text-align: right;
+  font-size: 1.25em;
+  font-family: var(--ff-heading);
+  letter-spacing: 0.15em;
+  margin: 0.5em 0 1em 0;
+}
+
+.modal-body .heading  [class^="ph"] {
+  margin: 0 0.5em 0.25em 0;
+  font-size: 0.9em;
+  vertical-align: middle;
+  color: var(--clr-accent);
+}
+
+.info, .likes-dislikes, .stats {width: calc(100%/3 - 0.5em);}
+
+.modal-body .info ul, .likes-dislikes ul{
+  list-style: none;
+  padding: 0;
+}
+
+.modal-body .info ul li {
+  padding: 0;
+  margin: 0.15em 0;
+}
+
+.modal-body .info ul li span {
+  font-weight: bold;
+  color: var(--clr-accent);
+  margin: 0 0.25em 0 0;
+}
+
+.modal-body .likes-dislikes ul li {
+  padding: 0;
+  margin: 0.25em 0;
+}
+
+.modal-body .likes-dislikes [class^="ph"] {
+  margin: 0 0.5em 0 0;
+  vertical-align: middle;
+  color: var(--clr-accent);
+}
+
+.modal-body .stats p {
+  margin: 0.25em 0 0.5em 0;
+}
+
+.modal-body .stats-bar { 
+  height: 8px;
+  position: relative;
+  background: #555;
+  border-radius: 5px;
+}
+
+.modal-body .stats-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 8px;
+  background-color: var(--clr-accent);
+  position: relative;
+  overflow: hidden;
+}
+
+.crd {
+  position: absolute;
+  right: 15px;
+  bottom: 20px;
+  padding: 0.75em 0.75em 0.5em;
+  background: var(--clr-boxes);
+  border-radius: 6px;
+}
+
+.crd:hover {color: var(--clr-font);}
+
+@media only screen and (max-width: 768px) {
+main {flex-direction: column;}
+
+aside {
+  width: 100%;
+  height: auto;
+  padding: 0.5em;
+  flex-direction: row;
+  justify-content: center;
+}
+
+aside::before {display: none;}
+
+aside ul.links {
+  margin: 0 0.5em;
+  padding: 0;
+}
+
+aside ul.links li {
+  display: inline-block;
+  margin: 0 0.25em;
+}
+
+aside ul.links li a {margin: 0.5em 0;}
+
+section.grid {
+  width: 100%;
+  height: calc(100vh - 125px);
+}
+
+article {width: 45%;}
+
+.modal-body .colors {width: 40%;}
+.modal-body .bio {width: 100%;}
+
+.modal-body .colors {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.modal-body .colors > div {
+  width: calc(100%/2 - 20px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+}
+
+@media only screen and (max-width: 420px) {
+aside .avatar {display: none;}
+
+aside ul.links li a {
+  margin: 0.25em 0.5em;
+  padding: 0.15em 0 0;
+  background: inherit;
+}
+
+ul.links li a [class^="ph"] {font-size: 24px;}
+
+article {width: 90%;}
+.modal-body .colors, .modal-body .bio {width: 100%;}
+.modal-body .info, 
+.modal-body .likes-dislikes, 
+.modal-body .stats {width: 100%;}
+.modal-body .stats {padding: 1em;}
+}
+
+
+
+/* Tumblr controls by magnusthemes */
+.iframe-controls--desktop {
+ position:fixed;
+ top:0px;
+ right:0px;
+ z-index:214748364789123456789;
+ -webkit-transform:scale(0.6,0.6);
+ -webkit-transform-origin: 100% 0%;
+ -ms-transform-origin:100% 0%;
+ -ms-transform:scale(0.6,0.6);
+ transform:scale(0.6,0.6);
+ transform-origin:100% 0%;
+}
+
+.iframe-controls--phone-mobile {display:none!important;}
+.tmblr-iframe-pushdown {padding-top:0!important;} 
+.tmblr-iframe--app-cta-button {display:none!important;}
+</style>
+</head>
+<body>
+<main class="container">
+<aside>
+<!-- Sidebar image is automatically set to your profile picture. If you want to change it, just replace "{PortraitURL-128}" with the image url. -->
+<img src="{PortraitURL-128}" class="avatar">
+  
+<ul class="links">
+<!-- To change the link icons, go to https://phosphoricons.com/ and change the name to whichever(s) you want. Be sure to keep the 'ph-' -->
+<li><a href="/" title="back to blog"><i class="ph-house"></i></a></li>
+<li><a href="/ask" title="send an ask"><i class="ph-envelope-simple"></i></a></li>
+<li><a href="/" title="link one"><i class="ph-compass"></i></a></li>
+<li><a href="/" title="link two"><i class="ph-folders"></i></a></li>
+<li><a href="/" title="link three"><i class="ph-info"></i></a></li>
+</ul>
+<!-- More links can be added. The sidebar will scroll automatically. -->
+</aside>
+
+<!-- MAIN CONTENT / GRID BEGINS -->
+<section class="grid">
+<article> <!-- Copy FROM HERE -->
+<div class="item">
+<!-- Any image should resize and fit. But a heads up, the images are not set to a fixed width and height. So if your images are differents sizes, the boxes will not be symetrical. -->
+<img src="">
+<div class="name">Name</div>
+<div class="more"><i class="ph-plus-circle"></i>more</div>
+</div>
+    
+<!--  MODAL STARTS  -->
+<div id="modal"><div class="fade"></div><div class="pop">
+<!-- MODAL CONTENT STARTS -->
+<div class="modal-hdr">
+<span class="close"><i class="ph-x-circle"></i></span>
+</div>
+
+<div class="modal-body">
+<img src="https://picsum.photos/300/330">
+
+<!-- Just replace the hex codes (e77878) with whatever you want, be sure to keep the #. -->
+<div class="colors">
+  <div style="background:#e77878;"></div>
+  <div style="background:#e77878;"></div>
+  <div style="background:#e77878;"></div>
+  <div style="background:#e77878;"></div>
+</div>
+
+<!-- BIOGRAPHY -->
+<div class="bio">
+<h1 class="heading"><i class="ph-star"></i>biography</h1>
+  <p>Type until your heart's content. :)</p>
+</div>
+
+<!-- PERSONAL INFORMATION -->
+<div class="info">
+<ul>
+  <li><span>name:</span>xx</li>
+  <li><span>pronouns:</span>xx</li>
+  <li><span>age:</span>xx</li>
+  <li><span>location:</span>xx</li>
+</ul>
+</div>
+
+<!-- LIKES & DISLIKES -->
+<div class="likes-dislikes">
+<ul>
+  <li><i class="ph-thumbs-up"></i>likes</li>
+  <li><i class="ph-thumbs-up"></i>likes</li>
+  <li><i class="ph-thumbs-down"></i>dislikes</li>
+  <li><i class="ph-thumbs-down"></i>dislikes</li>
+</ul>
+</div>  
+
+<!-- STATS -->
+<div class="stats">
+<p>Stat 1</p>
+  <div class="stats-bar">
+    <span style="width: 25%"></span>
+  </div>
+  
+<p>Stat 2</p>
+  <div class="stats-bar">
+    <span style="width: 50%"></span>
+  </div>
+  
+<p>Stat 3</p>
+  <div class="stats-bar">
+    <span style="width: 75%"></span>
+  </div>
+</div>
+</div>
+<!-- MODAL CONTENT ENDS -->
+</div>
+</div>
+</article> <!-- to HERE and past as needed -->
+
+</section>
+</main>
+<!-- Credit: DO NOT TOUCH PLEASE AND THANK YOU -->
+<a href="https://enbythemes.tumblr.com" title="name by rou" class="crd"><i class="ph-diamonds-four"></i></a>
+</body>
+<link rel="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+<script>
+$(document).ready(function () {
+  $(".more, .fade, .close").click(function () {
+    $(this).closest("article").find("#modal").fadeToggle(500);
+  });
+});
+</script>
+</html>
