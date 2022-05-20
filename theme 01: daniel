@@ -574,6 +574,11 @@ aside:hover, .posts:hover .post-footer {border: none;}
 .posts:hover .post-footer {background: var(--ClrPosts);}
 .tags {opacity: 1;}
 }
+
+@media only screen and (max-width: 480px) {
+aside img {display: none;}
+.user-text {width: 100%;}
+}
 {CustomCSS}
 </style>
 </head>
