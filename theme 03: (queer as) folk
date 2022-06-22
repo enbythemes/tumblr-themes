@@ -159,7 +159,7 @@ if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme
 --ImgFilters: brightness(1) grayscale(0);
 }
 
-html[data-theme='dark'] {
+:root, html[data-theme='dark'] {
 --ClrBackground: {RGBcolor:dark mode background};
 --ClrHeader: {RGBcolor:dark mode header};
 --ClrSidebar: {RGBcolor:dark mode sidebar};
