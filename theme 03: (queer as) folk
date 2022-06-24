@@ -1087,6 +1087,8 @@ header, section.post-container {width: 80vw;}
 </article>
 {/block:Pagination}
 </section>
+<!-- CREDIT: DO NOT MOVE, DELETE OR HIDE. THANK YOU -->
+<a href="https://enbythemes.tumblr.com" class="crd" title="theme daniel by roub"><i class="ph-sketch-logo"></i></a>
 </body>
 
 <!-- SCRIPTS -->
