@@ -293,9 +293,9 @@ transform: rotate(135deg);
 
 .close {
 cursor: pointer;
-position: fixed;
+position: absolute;
 top: var(--SmallGap);
-right: var(--SmallGap);
+right: var(--NormalGap);
 font-size: 28px;
 color: rgba(var(--ClrAccent),0.75);
 }
@@ -1088,7 +1088,7 @@ header, section.post-container {width: 80vw;}
 {/block:Pagination}
 </section>
 <!-- CREDIT: DO NOT MOVE, DELETE OR HIDE. THANK YOU -->
-<a href="https://enbythemes.tumblr.com" class="crd" title="theme daniel by roub"><i class="ph-sketch-logo"></i></a>
+<a href="https://enbythemes.tumblr.com" class="crd" title="theme (queer as) folk by roub"><i class="ph-sketch-logo"></i></a>
 </body>
 
 <!-- SCRIPTS -->
