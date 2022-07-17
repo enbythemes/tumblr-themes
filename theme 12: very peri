@@ -677,6 +677,7 @@ border-radius: 5px;
 border: 1px solid var(--borders);
 font-size: 0.85em;
 letter-spacing: 0.05em;
+display: inline-block;
 }
 
 .tags a:hover {
