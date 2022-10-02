@@ -777,6 +777,7 @@ opacity: 0;
 .tags {padding: var(--LargeGap) 0 0;}
 
 .tags a {
+display: inline-block;
 padding: var(--SmallGap);
 background: var(--ClrPosts);
 border: 1px solid var(--ClrBorders);
