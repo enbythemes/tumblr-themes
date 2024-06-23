@@ -884,7 +884,7 @@
             <img src="{image:sidebar header}" class="side-header" alt="Sidebar Header">
             
             <div class="side-box flex centered">
-                <!--<img src="{image:sidebar icon}" class="sidebar-icon {select:icon shape}" alt="Sidebar Icon">-->
+                <img src="{image:sidebar icon}" class="sidebar-icon {select:icon shape}" alt="Sidebar Icon">
                 
                 <nav aria-label="navigation">
                     <a href="/" title="Refresh">.01</a>
