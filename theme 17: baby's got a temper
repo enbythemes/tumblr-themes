@@ -932,7 +932,7 @@
             </div>
             
             <nav class="flex align-center" aria-label="navigation">
-                <a href="{BlogURL}" itle="Refres"><i class="ph ph-house"></i></a>
+                <a href="{BlogURL}" title="Refresh"><i class="ph ph-house"></i></a>
                 {block:AskEnabled}<a href="/ask" title="Ask"><i class="ph ph-envelope"></i></a>{/block:AskEnabled}
                 
                 <a href="{text:link one url}" title="{text:link one}"><i class="ph ph-{text:link one icon}"></i></a>
