@@ -859,7 +859,6 @@
         @media only screen and (max-width: calc({select:post size} + 325px)) {
             :root {
                 --SidebarWidth: var(--PostWidth);
-                --Clr-Background: red;
             }
             
             :is(.left,.right) main {
