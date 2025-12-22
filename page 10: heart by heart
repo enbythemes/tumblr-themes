@@ -1,0 +1,574 @@
+<!-- 
+       
+            Heart by Heart
+        © xroub.tumblr.com
+            December 2025
+
+Styled after https://app.thestorygraph.com/
+CSS Popup's: https://codepen.io/imprakash/pen/GgNMXO?editors=1100
+Phosphor Icons © Helena Zhang & Tobias Fried
+
+I tried to make editing this as simple as possible and left notes throughout the code, but if you have any questions don't hesitate to ask!
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{Title}</title>
+    
+    <link rel="shortcut icon" href="{Favicon}">
+    
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    
+    <link href="https://fonts.bunny.net/css?family=poppins:400,700" rel="stylesheet" />
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --Font-Family: "Poppins", sans-serif;
+            --Font-Size: 16px;
+            
+            /* SIZING */
+            --Header-Icon: 100px;
+            --Currently-Width: 100px;
+            --Currently-Height: 150px;
+            --Other-Img-Width: 60px;
+            --Other-Img-Height: 90px;
+            
+            /* SPACING */
+            --ExSmallGap: 0.25em;
+            --SmallGap: 0.5em;
+            --NormalGap: 1em;
+            --LargeGap: 1.5em;
+            
+            /* COLORS */
+            --Clr-BG-Grd-1: #87bec3;
+            --Clr-BG-Grd-2: #0e7c86;
+            --Clr-Background: #f0f0f0;
+            --Clr-Text: #222222;
+            --Clr-Header: #eaeaea;
+            --Clr-Accent: #0e7c86;
+            --Clr-Borders: #e0e0e0;
+            --Clr-Pop-Background: #f0f0f0;
+            --Clr-Fave: #e7c960;
+        }
+        
+        body {
+            margin: 0;
+            background: var(--Clr-BG-Grd-1);
+            background: linear-gradient(180deg, var(--Clr-BG-Grd-1), var(--Clr-BG-Grd-2));
+            background-size: 100vw 100vh;
+            background-repeat: no-repeat;
+            font-family: var(--Font-Family);
+            font-size: var(--Font-Size);
+            color: var(--Clr-Text);
+            line-height: 1.5;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        a, b, .counter span {
+            color: var(--Clr-Accent);
+        }
+        
+        a:hover, header a {
+            color: var(--Clr-Text);
+        }
+        
+        a:hover {
+            cursor: help;
+        }
+        
+        a, a:hover, img, .close {
+            transition: all 0.4s;
+            -webkit-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            -ms-transition: all 0.4s;
+            -o-transition: all 0.4s;
+        }
+        
+        #credit {
+            position: fixed;
+            right: 1.5em;
+            bottom: 1em;
+        }
+        
+        /* PRE STYLING */
+        header, section {
+            padding: var(--NormalGap);
+        }
+        
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        /* TUMBLR CONTROLS */
+        iframe.tmblr-iframe {
+            z-index: 999999999!important;
+            margin-top: 1em;
+            margin-right: 1em;
+            transform:scale(0.7);
+            transform-origin:100% 0;
+            -webkit-transform:scale(0.7);
+            -webkit-transform-origin:100% 0;
+            -o-transform:scale(0.7);
+            -o-transform-origin:100% 0;
+            -moz-transform:scale(0.7);
+            -moz-transform-origin:100% 0;
+            -ms-transform:scale(0.7);
+            -ms-transform-origin:100% 0;
+            /* DARK TUMBLR CONTROLS - DELETE IF HAVE A DARK BG */
+            filter: invert(1) hue-rotate(180deg);
+            -webkit-filter: invert(1) hue-rotate(180deg);
+            -o-filter: invert(1) hue-rotate(180deg);
+            -moz-filter: invert(1) hue-rotate(180deg);
+            -ms-filter: invert(1) hue-rotate(180deg);
+            /* DELETE BETWEEN THESE LINES IN YOU HAVE A DARK BG */
+        }
+        
+        .iframe-controls--phone-mobile {display:none!important;}
+        .tmblr-iframe--app-cta-button {display:none!important;}
+        
+        /* CONTAINER */
+        .container {
+            width: 97vw;
+            height: 97vh;
+            background: var(--Clr-Background);
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: var(--ExSmallGap);
+            overflow: hidden;
+        }
+        
+        /* HEADER */
+        header {
+            background: var(--Clr-Header);
+            gap: var(--LargeGap);
+            padding: var(--NormalGap);
+            align-items: center;
+        }
+        
+        header img {
+            width: var(--Header-Icon);
+            height: var(--Header-Icon);
+            fit-content: cover;
+            border-radius: 50%;
+        }
+        
+        .header-text .title {
+            font-size: 1.3em;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            color: var(--Clr-Accent);
+        }
+        
+        .header-text a:hover {
+            color: var(--Clr-Accent);
+        }
+        
+        .header-text a {
+            margin: 0 var(--SmallGap) 0 0;
+        }
+        
+        /* MAIN CONTENT */
+        section {
+            margin-top: var(--LargeGap);
+            padding: var(--NormalGap);
+            gap: var(--NormalGap);
+            overflow-y: scroll;
+            height: calc(97vh - 100px - var(--LargeGap) *3);
+        }
+        
+        .content {
+            width: calc(65% - var(--NormalGap));
+        }
+        
+        .about {
+            width: 35%;
+        }
+        
+        .content, .about {
+            flex-direction: column;
+            gap: var(--NormalGap) 0;
+        }
+        
+        section article {
+            padding: var(--SmallGap) var(--NormalGap);
+            border: 1px solid var(--Clr-Borders);
+            border-radius: var(--SmallGap);
+        }
+        
+        article a, article img {
+            display: inline-block;
+        }
+        
+        article img {
+            margin: 0 var(--SmallGap) var(--SmallGap) 0;
+            width: var(--Currently-Width);
+            height: var(--Currently-Height);
+            object-fit: cover;
+        }
+        
+        .box-title {
+            font-weight: 700;
+            color: var(--Clr-Accent);
+            margin-bottom: var(--SmallGap);
+        }
+        
+        article:not(.currently) img {
+            width: var(--Other-Img-Width);
+            height: var(--Other-Img-Height);
+        }
+        
+        article a:not(:last-of-type) {
+            margin-right: var(--SmallGap);
+        }
+        
+        article div.fave {
+            display: inline-block;
+        }
+        
+        .fave {
+            position: relative;
+        }
+        
+        .fave::before {
+            content: "\e46a";
+            font-family: "Phosphor-Fill" !important;
+            position: absolute;
+            top: 3px;
+            left: 5px;
+            color: var(--Clr-Fave);
+        }
+        
+        /* POP UP */
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(2px);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 9999;
+        }
+        
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .popup {
+            width: 70%;
+            margin: calc(var(--LargeGap) + 35px) auto;
+            background: var(--Clr-Pop-Background);
+            padding: var(--NormalGap);
+            border-radius: var(--SmallGap);
+            border: 1px solid var(--Clr-Borders);
+            box-shadow: 0 1px 2px 0 var(--Clr-Borders);
+            position: relative;
+            transition: all 5s ease-in-out;
+            z-index: 99999;
+        }
+        
+        .close.button {
+            font-size: 0.9em;
+            padding: var(--SmallGap) var(--NormalGap);
+            background: var(--Clr-Accent);
+            color: var(--Clr-Background);
+            border-radius: var(--SmallGap);
+            float: right;
+            transform: translateY(-30px);
+            border: 1px solid var(--Clr-Accent);
+        }
+        
+        .close.button:hover {
+            color: var(--Clr-Accent);
+            background: var(--Clr-Background);
+        }
+        
+        .popup h2, .popup h4 {
+            padding: 0;
+            margin: var(--SmallGap) 0;
+        }
+        
+        .popup h2:first-of-type {
+            color: var(--Clr-Accent);
+        }
+        
+        .info, .tags, .warnings {
+            margin: var(--NormalGap) 0;
+        }
+        
+        .info span {
+            font-size: 0.9em;
+            position: relative;
+        }
+        
+        .info span:not(:first-of-type) {
+            margin-left: 15px;
+        }
+        
+        .info span:not(:first-of-type):before {
+            content: '';
+            position: absolute;
+            top: 9px;
+            left: -9px;
+            height: 3px;
+            width: 3px;
+            border-radius: 50%;
+            background: var(--Clr-Accent);
+        }
+        
+        .tags span {
+            display: inline-block;
+            font-size: .9em;
+            padding: var(--ExSmallGap) var(--SmallGap);
+            border: 1px solid var(--Clr-Accent);
+            margin: 0 var(--SmallGap) var(--SmallGap) 0;
+            border-radius: var(--ExSmallGap);
+        }
+        
+        .warnings {
+            margin-top: var(--LargeGap);
+        }
+        
+        .warnings ul {
+            list-style-type: none;
+            padding: 0;
+            margin: var(--SmallGap) 0;
+        }
+        
+        .warnings ul li {
+            padding: 0;
+            margin: var(--SmallGap) 0;
+        }
+        
+        .status p:first-of-type, .upcoming p:first-of-type {
+            margin-top: 0;
+        }
+        
+        .status p:last-of-type, .upcoming p:last-of-type {
+            margin-bottom: 0;
+        }
+        
+        .upcoming p {
+            position: relative;
+        }
+        
+        .upcoming p:not(:last-of-type)::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            background: var(--Clr-Borders);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 15%, rgba(204, 204, 204, 1) 50%, rgba(255, 255, 255, 0) 85%);
+            
+            width: 100%;
+            height: 1px;
+        }
+        
+        /* RESPONSIVE QUERRIES */
+        @media only screen and (max-width: 768px) {
+            section.flex {
+                flex-direction: column;
+                flex-wrap: nowrap;
+                gap: var(--LargeGap) 0;
+            }
+            
+            .about, .content {
+                width: 100%;
+            }
+            
+            .popup {
+                width: 90vw;
+            }
+        }
+        
+        @media only screen and (max-width: 600px) {
+            iframe.tmblr-iframe {
+                display: none;
+            }
+            
+            .popup {
+                margin: var(--LargeGap) auto 0;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="flex">
+            <img src="{PortraitURL-128}" alt="Header icon">
+            
+            <div class="header-text">
+                <div class="title">heading title</div>
+                
+                <nav class="links">
+                    <a href="/">Back to blog</a>
+                    <a href="/ask">Ask</a>
+                    <a href="/archive">Archive</a>
+                    <!-- YOU HAVE PERMISSION TO DELETE THIS CREDIT-->
+                    <a href="https://enbythemes.tumblr.com" title="Code by Rou">Credit</a>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- MAIN CONTENT -->
+        <section class="flex">
+            <div class="content flex">
+                <article class="currently">
+                    <div class="box-title">Currently</div>
+                    
+                    <a href="#currently-1" class="fave"> <!-- MATCH WITH THE ID -->
+                        <img src="https://prodimage.images-bn.com/pimages/9781250856036_p0_v2_s1200x1200.jpg" alt="book cover for red, white and royal blue by casey mcquiston">
+                    </a>
+                    
+                    <div id="currently-1" class="overlay"> <!-- MATCH TO THE LINK. DO NOT TOUCH THE CLASS -->
+                        <div class="popup">
+                            <a class="close button" href="#">close</a>
+                            
+                            <h2><i class="ph-fill ph-star" style="font-size: 0.8em; color: #e1bc38;"></i> Red, White & Royal Blue</h2>
+                            <h4>Casey McQuiston</h4>
+                            
+                            <div class="info">
+                                <span>436 pages</span>
+                                <span>first pub 2019</span>
+                            </div>
+                            
+                            <div class="tags">
+                                <span>fiction</span>
+                                <span>romance</span>
+                                <span>lgbtqia+</span>
+                            </div>
+                            
+                            <div class="description">
+                                <div class="box-title">Description</div>
+                                What happens when America's First Son falls in love with the Prince of Wales? 
+                            </div>
+                            
+                            <div class="warnings">
+                                <div class="box-title">Content Warnings</div>
+                                
+                                <ul>
+                                    <li><b>Graphic:</b> Outing, Sexual content, Homophobia</li>
+                                    
+                                    <li><b>Moderate:</b> Grief, Panic attacks/disorders</li>
+                                    
+                                    <li><b>Minor:</b> Sexual assault, Drug abuse, Racism</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#currently-2">
+                        <img src="https://placehold.co/100x150" alt="image alt">
+                    </a>
+                    
+                    <div id="currently-2" class="overlay">
+                        <div class="popup">
+                            <a class="close button" href="#">close</a>
+                            
+                            <h2>Title</h2>
+                            <h4>Author</h4>
+                            
+                            <div class="info">
+                                <span>number of pages</span>
+                                <span>release date</span>
+                                <span>whatever you want</span>
+                            </div>
+                            
+                            <div class="tags">
+                                <span>genre tag</span>
+                                <span>whatever you</span>
+                                <span>wish to put</span>
+                                <span>go wild</span>
+                            </div>
+                            
+                            <div class="description">
+                                <div class="box-title">Description</div>
+                                what it's about.
+                            </div>
+                        </div>
+                    </div>
+                    
+                </article>
+                
+                <!-- RECENTLY -->
+                <article class="recently">
+                    <div class="box-title">Recently</div>
+                    
+                    <!-- WITHOUT A POP UP JUST USE THE IMAGE -->
+                    <img src="https://placehold.co/60x90" alt="image alt">
+                    
+                    <!-- TO ADD A FAVORITE ICON WITH JUST AN IMAGE, WRAP A DIV AROUND IT LIKE BELOW -->
+                    <div class="fave">
+                        <img src="https://placehold.co/60x90" alt="image alt">
+                    </div>
+                    
+                    <img src="https://placehold.co/60x90" alt="image alt">
+                    
+                    <img src="https://placehold.co/60x90" alt="image alt">
+                    
+                    <img src="https://placehold.co/60x90" alt="image alt">
+                    
+                    <img src="https://placehold.co/60x90" alt="image alt">
+                    
+                    <img src="https://placehold.co/60x90" alt="image alt">
+                    
+                    <img src="https://placehold.co/60x90" alt="image alt">
+                    
+                    <img src="https://placehold.co/60x90" alt="image alt">
+                </article>
+            </div>
+            
+            <div class="about flex">
+                <article class="status">
+                    <p><b>Status One:</b> X
+                    
+                    <br>
+                    
+                    <b>Status Two:</b> X</p>
+                </article>
+                
+                <article class="upcoming">
+                    <p><b>Title</b> <br>
+                    author</p>
+                    
+                    <p><b>Title</b> <br>
+                    author</p>
+                </article>
+                
+                <article>
+                    A simple box you can put whatevr you want. Or simply delete it if you wish. <br>
+                    <b>Thank you for using!</b>
+                </article>
+            </div>
+        </section>
+    </div>
+
+<!-- PLEASE DO NOT DELETE THIS CREDIT -->
+<a href="https://enbythemes.tumblr.com" title="Heart by Heart | Rou" id="credit"><i class="ph-fill ph-diamonds-four"></i></a>
+</body>
+</html>
