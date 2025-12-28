@@ -1,0 +1,368 @@
+<!--
+       
+            Every Dimension
+        © xroub.tumblr.com
+            December 2025
+
+CSS Filters by eggdesign <3
+
+If you aren't that fimilar or confident in editing the filters yourself, I would recomend going to the CSS Filters page directly and copy and pasting (replacing) your filters.
+
+Post: https://egg.design/post/708211146573889536/so-this-evening-ive-been-working-on-a-way-to-make
+
+Page: https://egg.design/filtergenerator
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{name}'s icons</title>
+    
+    <link rel="shortcut icon" href="{Favicon}">
+    
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css"href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"/>
+    
+    <link href="https://dencar-icons.gitlab.io/i/icons.css" rel="stylesheet" crossorigin>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* FONT */
+            --Font-Family: "Helvetica", sans-serif;
+            --Font-Size: 16px;
+            
+            /* SIZING */
+            --Container-Width: 90vw;
+            --Header-Icon-Size: 50px;
+            /* To help with responsiveness, the icons are set to adjust to screen size. But there is also a maximum and minimum  width set. So if you want bigger pictures, scroll down and chane the size(s) */
+            --Icons-Per-Row: 8;
+            --ExSmallGap: 0.25em;
+            --SmallGap: 0.5em;
+            --NormalGap: 1em;
+            --LargeGap: 1.5em;
+            
+            /* COLORS */
+            --Clr-Background: #f3ffe8;
+            --Clr-Header: #e9f6dc;
+            --Clr-Text: #222222;
+            --Clr-Accent: #23860e;
+        }
+        
+        body {
+            margin: 0;
+            background: var(--Clr-Background);
+            font-family: var(--Font-Family);
+            font-size: var(--Font-Size);
+            color: var(--Clr-Text);
+            line-height: 1.5;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        a, b {
+            color: var(--Clr-Accent);
+        }
+        
+        a:hover {
+            color: var(--Clr-Text);
+        }
+        
+        a, a:hover, svg {
+            transition: all 0.4s;
+            -webkit-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            -ms-transition: all 0.4s;
+            -o-transition: all 0.4s;
+        }
+        
+        blockquote {
+            margin: var(--NormalGap) 0 var(--NormalGap) var(--NormalGap);
+            padding-left: var(--NormalGap);
+            border-left: 2px solid var(--Clr-Accent);
+        }
+        
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        /* TUMBLR CONTROLS */
+        iframe.tmblr-iframe {
+            z-index: 999999999!important;
+            margin-top: 1em;
+            margin-right: 1em;
+            transform:scale(0.7);
+            transform-origin:100% 0;
+            -webkit-transform:scale(0.7);
+            -webkit-transform-origin:100% 0;
+            -o-transform:scale(0.7);
+            -o-transform-origin:100% 0;
+            -moz-transform:scale(0.7);
+            -moz-transform-origin:100% 0;
+            -ms-transform:scale(0.7);
+            -ms-transform-origin:100% 0;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            /* DARK TUMBLR CONTROLS */
+            filter: invert(1) hue-rotate(180deg);
+            -webkit-filter: invert(1) hue-rotate(180deg);
+            -o-filter: invert(1) hue-rotate(180deg);
+            -moz-filter: invert(1) hue-rotate(180deg);
+            -ms-filter: invert(1) hue-rotate(180deg);
+            /* DELETE IF YOU HAVE A DARKER BACKGROUND */
+        }
+        
+        
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--Clr-Header);
+            padding: var(--NormalGap) var(--SmallGap);
+        }
+        
+        header, nav {
+            gap: 0 var(--NormalGap);
+            align-items: center;
+        }
+        
+        header img {
+            width: var(--Header-Icon-Size);
+            border-radius: 50%;
+        }
+        
+        nav a {
+            font-weight: bold;
+        }
+        
+        /* CONTAINER */
+        main {
+            width: var(--Container-Width);
+            margin: 125px auto 25px;
+        }
+        
+        .description {
+            margin: var(--NormalGap) 0;
+        }
+        
+        /* FILTERS */
+        span.group-label {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            font-size: .9em;
+            margin-right: var(--SmallGap);
+        }
+        
+        input + label, input {
+            cursor: pointer;
+        }
+        
+        label:not(:last-of-type) {
+            margin-right: 10px;
+        }
+        
+        input[type="radio"] {
+            display: none;
+        }
+        
+        input[type="radio"]:checked+label {
+            color: var(--Clr-Accent);
+            font-weight: bold;
+            border-bottom: 1px solid var(--Clr-Accent);
+        }
+        
+        /* CHANGE / EDIT FROM HERE */
+        input:checked + label[for='persona'] ~ .css-filters div:not([data-persona]),
+        input:checked + label[for='personb'] ~ .css-filters div:not([data-personb]),
+        input:checked + label[for='personc'] ~ .css-filters div:not([data-personc]),
+        input:checked + label[for='red'] ~ .css-filters div:not([data-red]),
+        input:checked + label[for='orange'] ~ .css-filters div:not([data-orange]),
+        input:checked + label[for='yellow'] ~ .css-filters div:not([data-yellow]),
+        input:checked + label[for='green'] ~ .css-filters div:not([data-green]),
+        input:checked + label[for='blue'] ~ .css-filters div:not([data-blue]),
+        input:checked + label[for='purple'] ~ .css-filters div:not([data-purple]),
+        input:checked + label[for='pink'] ~ .css-filters div:not([data-pink]),
+        input:checked + label[for='gray'] ~ .css-filters div:not([data-gray]) 
+        /* TO HERE. I WOULD NOT RECOMEND MESSING WITH ANYTHING ELSE IF YOU AREN'T FIMILAR WITH CSS */
+        
+        {
+            
+            animation: hideFilter .8s 1 forwards!important;
+            display: none;
+        }
+        
+        @keyframes hideFilter {
+            50% {
+                transform:scale(0);
+                height:100px;
+                width:100px;
+            }
+            100% {
+                transform:scale(0);
+                width:0;
+                height:0;
+                margin:0;
+            }
+        }
+        
+        .css-filters {
+            align-items: center;
+            gap: var(--SmallGap);
+            margin-top: var(--LargeGap);
+        }
+        
+        .css-filters div {
+            width: calc(100% / var(--Icons-Per-Row) - var(--SmallGap));
+            /* Change these if you want bigger or small icons per row */
+            max-width: 200px;
+            min-width: 75px;
+        }
+        
+        .css-filters div img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* CREDIT */
+        #credit {
+            position: fixed;
+            bottom: 1em;
+            right: 1em;
+        }
+        
+        #credit svg {
+            width: 1em;
+            height: 1em;
+            fill: var(--Clr-Accent);
+        }
+        
+        #credit:hover svg {
+            fill: var(--Clr-Text);
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="flex">
+        <img src="{PortraitURL-128}" alt="Header icon">
+        
+        <nav class="flex">
+            <a href="/">Back to blog</a>
+            <a href="/">Ask</a>
+            <a href="/">Archive</a>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="description">
+            <blockquote>
+                A simple space to put whatever you want.
+            </blockquote>
+        </div>
+        
+        <!-- FILTERS -->
+        <!-- GROUP 1 -->
+        <span class="group-label">Who:</span>
+        
+        <input type="radio" id="everything" name="who" checked>
+        <label for="everything">All </label>
+        
+        <input type="radio" id="persona" name="who">
+        <label for="persona">Person A</label>
+        
+        <input type="radio" id="personb" name="who">
+        <label for="personb">Person B</label>
+        
+        <input type="radio" id="personc" name="who">
+        <label for="personc">Person C</label>
+        
+        <br>
+        
+        <!-- GROUP 2 -->
+        <span class="group-label">Color:</span>
+        
+        <input type="radio" id="all" name="color" checked>
+        <label for="all">All </label>
+        
+        <input type="radio" id="red" name="color">
+        <label for="red">Red </label>
+        
+        <input type="radio" id="orange" name="color">
+        <label for="orange">Orange </label>
+        
+        <input type="radio" id="yellow" name="color">
+        <label for="yellow">Yellow </label>
+        
+        <input type="radio" id="green" name="color">
+        <label for="green">Green </label>
+        
+        <input type="radio" id="blue" name="color">
+        <label for="blue">Blue </label>
+        
+        <input type="radio" id="purple" name="color">
+        <label for="purple">Purple </label>
+        
+        <input type="radio" id="pink" name="color">
+        <label for="pink">Pink </label>
+        
+        <input type="radio" id="gray" name="color">
+        <label for="gray">Gray </label>
+        
+        <!-- MAIN CONTENT -->
+        <section class="css-filters flex">
+        <!-- some sample entries to get you started -->  
+             <div data-persona data-red>
+                 <img src="https://placehold.co/100/eaeaea/red?text=Person+A" alt="icon">
+             </div>
+             
+             <div data-personb data-orange>
+                 <img src="https://placehold.co/100/eaeaea/orange?text=Person+B" alt="icon">
+             </div>
+             
+             <div data-personc data-yellow>
+                 <img src="https://placehold.co/100/eaeaea/edd151?text=Person+C" alt="icon">
+             </div>
+             
+             <div data-persona data-green>
+                 <img src="https://placehold.co/100/eaeaea/green?text=Person+A" alt="icon">
+             </div>
+             
+             <div data-personb data-blue>
+                 <img src="https://placehold.co/100/eaeaea/blue?text=Person+B" alt="icon">
+             </div>
+             
+             <div data-personc data-purple>
+                 <img src="https://placehold.co/100/eaeaea/purple?text=Person+C" alt="icon">
+             </div>
+             
+             <div data-persona data-pink>
+                 <img src="https://placehold.co/100/eaeaea/deeppink?text=Person+A" alt="icon">
+             </div>
+             
+             <div data-personb data-gray>
+                 <img src="https://placehold.co/100/eaeaea/black?text=Person+B" alt="icon">
+             </div>
+        </section>
+    </main>
+    
+<!-- CREDIT. PLEASE DO NOT TOUCH. THANK YOU -->
+<a href="https://enbythemes.tumblr.com" id="credit" title="Every Dimension by Rou"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M122.34,109.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0,0-11.32l-40-40a8,8,0,0,0-11.32,0l-40,40a8,8,0,0,0,0,11.32ZM128,35.31,156.69,64,128,92.69,99.31,64Zm5.66,111a8,8,0,0,0-11.32,0l-40,40a8,8,0,0,0,0,11.32l40,40a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0,0-11.32ZM128,220.69,99.31,192,128,163.31,156.69,192Zm109.66-98.35-40-40a8,8,0,0,0-11.32,0l-40,40a8,8,0,0,0,0,11.32l40,40a8,8,0,0,0,11.32,0l40-40A8,8,0,0,0,237.66,122.34ZM192,156.69,163.31,128,192,99.31,220.69,128Zm-82.34-34.35-40-40a8,8,0,0,0-11.32,0l-40,40a8,8,0,0,0,0,11.32l40,40a8,8,0,0,0,11.32,0l40-40A8,8,0,0,0,109.66,122.34ZM64,156.69,35.31,128,64,99.31,92.69,128Z"></path></svg></a>
+</body>
+</html>
