@@ -127,7 +127,9 @@ Page: https://egg.design/filtergenerator
             /* DELETE IF YOU HAVE A DARKER BACKGROUND */
         }
         
-        
+        .iframe-controls--phone-mobile {display:none!important;}
+        .tmblr-iframe--app-cta-button {display:none!important;}
+       
         /* HEADER */
         header {
             position: fixed;
