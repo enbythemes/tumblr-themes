@@ -1130,8 +1130,7 @@
     <main>
         <!-- HEADER -->
         <header class="flex align-center">
-            <!--<img src="https://i.imgur.com/KZDpmJR.jpeg" class="{select:icons shape}" alt="Header icon">-->
-            <img src="https://i.imgur.com/KZDpmJR.jpeg" class="{select:icons shape}" alt="Header icon">
+            <img src="{PortraitURL-128}" class="{select:icons shape}" alt="Header icon">
             
             <div class="header-text flex">
                 <div class="blog-title">
